@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!-- from http://bl.ocks.org/mbostock/4339083
+and http://bl.ocks.org/mbostock/4063550
+
+!-->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+.timelinepoint {
+  font-size: 12px;
+}
+</style>
+</head>
+<body>
+<script src="d3/d3.v3.min.js"></script>
+<script src="jquery/jquery.v2.min.js"></script>
+<p id="help"></p>
+<div>
+  <div id="canvas"/>
+</div>
+
+<script>
+var CANVAS_WIDTH = 290;
+var CANVAS_HEIGHT = 520;
+var TIMELINE_X = 5;
+var TIMELINE_Y = 5;
+var TL_TEXT_PUSH_Y = 10;
+var TIMELINE_WIDTH = 100;
+var TIMELINE_TEXT_WIDTH = TIMELINE_WIDTH - 10;
+var MID_TIMELINE_X = TIMELINE_X  + (TIMELINE_WIDTH/2)
+var FIRST_MONTH_Y = TIMELINE_Y + 20;
+var FIRST_FALL_Y = FIRST_MONTH_Y + 20;
+var FIRST_SPRING_Y = FIRST_FALL_Y + 50;
+var THIRD_SEM_Y = FIRST_SPRING_Y + 20;
+var CANDIDACY_Y = THIRD_SEM_Y + 15;
+var FOURTH_SEM_Y = CANDIDACY_Y + 10;
+var DEFENSE_Y = FOURTH_SEM_Y + 380;
+
+
+var canvas_root = d3.select('#canvas').append('svg')
+    .attr({'width':  CANVAS_WIDTH,
+           'height': CANVAS_HEIGHT,})
+    .style('background', 'white');
+
+// var g_el = canvas_root.selectAll('g')
+//   .enter()
+//   .append('g');
+
+var add_timeline_text = function(y, text_val) {
+  canvas_root.append('text')
+    .attr({"x": MID_TIMELINE_X,
+           "y":  y + TL_TEXT_PUSH_Y,
+           "class":"timelinepoint"})
+    .text(text_val).attr({"text-anchor": "middle"});
+};
+
+var do_draw_timeline = function() {
+  canvas_root.append("rect")
+    .attr({'x': TIMELINE_X, 'y': TIMELINE_Y,
+           'height': CANDIDACY_Y - TIMELINE_Y,
+           'width': TIMELINE_WIDTH,
+           'fill': "white", 'stroke': "black"});
+  canvas_root.append('text')
+    .attr({"x":MID_TIMELINE_X, "y": TIMELINE_Y + 15,
+           "font-size":"10pt", "fill": "grey",
+           "text-anchor": "middle"})
+    .text("pre-candidacy");
+  canvas_root.append("rect")
+    .attr({'x': TIMELINE_X, 'y': CANDIDACY_Y,
+           'height': DEFENSE_Y - CANDIDACY_Y,
+           'width': TIMELINE_WIDTH,
+           'fill': "white", 'stroke': "black"});
+  canvas_root.append('text')
+    .attr({"x": MID_TIMELINE_X, "y": DEFENSE_Y - 15,
+           "font-size":"10pt", "fill": "grey",
+           "text-anchor": "middle"})
+    .text("candidacy");
+  add_timeline_text(FIRST_MONTH_Y, "1st month");
+  add_timeline_text(FIRST_FALL_Y, "1st Fall");
+  add_timeline_text(FIRST_SPRING_Y, "1st Spring");
+  add_timeline_text(THIRD_SEM_Y, "3rd Semester");
+  add_timeline_text(FOURTH_SEM_Y, "4th Semester");
+  //add_timeline_text(FIRST_FALL_Y, "1st Fall");
+};
+
+$(document).ready(function() {
+  do_draw_timeline();
+});
+</script>
+
+</body>
+</html>
