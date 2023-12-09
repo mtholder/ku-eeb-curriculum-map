@@ -10,6 +10,11 @@ and http://bl.ocks.org/mbostock/4063550
 .timelinepoint {
   font-size: 12px;
 }
+
+.eebevent {
+  font-size: 14px;
+}
+
 </style>
 </head>
 <body>
@@ -23,19 +28,32 @@ and http://bl.ocks.org/mbostock/4063550
 <script>
 var CANVAS_WIDTH = 290;
 var CANVAS_HEIGHT = 520;
+
 var TIMELINE_X = 5;
 var TIMELINE_Y = 5;
 var TL_TEXT_PUSH_Y = 10;
 var TIMELINE_WIDTH = 100;
 var TIMELINE_TEXT_WIDTH = TIMELINE_WIDTH - 10;
-var MID_TIMELINE_X = TIMELINE_X  + (TIMELINE_WIDTH/2)
+var MID_TIMELINE_X = TIMELINE_X  + (TIMELINE_WIDTH/2);
+
+var EEB_X = TIMELINE_X + TIMELINE_WIDTH + 40;
+var EEB_Y = TIMELINE_Y;
+var EEB_TEXT_PUSH_Y = TL_TEXT_PUSH_Y;
+var EEB_WIDTH = 120;
+var EEB_TEXT_WIDTH = EEB_WIDTH - 10;
+var MID_EEB_X = EEB_X  + (EEB_WIDTH/2);
+
+
 var FIRST_MONTH_Y = TIMELINE_Y + 20;
 var FIRST_FALL_Y = FIRST_MONTH_Y + 20;
 var FIRST_SPRING_Y = FIRST_FALL_Y + 50;
-var THIRD_SEM_Y = FIRST_SPRING_Y + 20;
+var THIRD_SEM_Y = FIRST_SPRING_Y + 50;
 var CANDIDACY_Y = THIRD_SEM_Y + 15;
-var FOURTH_SEM_Y = CANDIDACY_Y + 10;
-var DEFENSE_Y = FOURTH_SEM_Y + 380;
+var FOURTH_SEM_Y = CANDIDACY_Y + 30;
+var THIRD_YEAR_Y = FOURTH_SEM_Y + 80;
+var FOURTH_YEAR_Y = THIRD_YEAR_Y + 80;
+var DEFENSE_Y = CANVAS_HEIGHT - 20;
+
 
 
 var canvas_root = d3.select('#canvas').append('svg')
@@ -84,8 +102,37 @@ var do_draw_timeline = function() {
   //add_timeline_text(FIRST_FALL_Y, "1st Fall");
 };
 
+var add_eeb_text = function(y, text_val, lg_vec) {
+  canvas_root.append('text')
+    .attr({"x": MID_EEB_X,
+           "y":  y + EEB_TEXT_PUSH_Y,
+           "class":"eebevent"})
+    .text(text_val).attr({"text-anchor": "middle"});
+};
+
+var do_draw_eeb_events = function() {
+  canvas_root.append('text')
+    .attr({"x":MID_EEB_X, "y": EEB_Y + 15,
+           "font-size":"10pt", "fill": "grey",
+           "text-anchor": "middle"})
+    .text("EEB non-class events");
+
+  add_eeb_text(FIRST_MONTH_Y, "Prelim. Advising Meeting", [0,0,0,0]);
+  add_eeb_text(THIRD_SEM_Y - 30, "form RAC", [0,0,0,0]);
+  add_eeb_text(THIRD_SEM_Y, "Comp. Oral Exam", [2,2,0,1]);
+  add_eeb_text(FOURTH_SEM_Y - 20, "Dissertation Prop. Writing", [2,2,1,2]);
+  add_eeb_text(FOURTH_SEM_Y, "Dissertation Prop. Defense", [2,2,1,2]);
+  add_eeb_text(THIRD_YEAR_Y - 40, "Dissertation Research", [2,2,2,2]);
+  add_eeb_text(THIRD_YEAR_Y, "Dissertation Writing", [3,3,2,2]);
+  add_eeb_text(FOURTH_YEAR_Y - 40, "Dissertation Research", [3,3,2,2]);
+  add_eeb_text(FOURTH_YEAR_Y, "Dissertation Writing", [3,3,2,2]);
+  add_eeb_text(DEFENSE_Y - 20, "Finish Dissertation", [3,3,3,2]);
+  add_eeb_text(DEFENSE_Y, "Defend Dissertation", [3,3,3,2]);
+}
+
 $(document).ready(function() {
   do_draw_timeline();
+  do_draw_eeb_events();
 });
 </script>
 
