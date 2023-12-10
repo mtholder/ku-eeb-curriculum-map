@@ -55,6 +55,26 @@ var FOURTH_YEAR_Y = THIRD_YEAR_Y + 80;
 var DEFENSE_Y = CANVAS_HEIGHT - 20;
 
 
+var timeline_y = [FIRST_MONTH_Y, FIRST_FALL_Y, FIRST_SPRING_Y, THIRD_SEM_Y, FOURTH_SEM_Y];
+var timeline_objs = [{
+    "time_offset": 0,
+    "text": "1st month"
+  }, {
+    "time_offset": 1,
+    "text": "1st Fall"
+  }, {
+    "time_offset": 2,
+    "text": "1st Spring"
+  }, {
+    "time_offset": 3,
+    "text": "3rd Semester"
+  },{
+    "time_offset": 4,
+    "text": "4th Semester"
+  }
+];
+
+
 
 var canvas_root = d3.select('#canvas').append('svg')
     .attr({'width':  CANVAS_WIDTH,
@@ -73,6 +93,17 @@ var add_timeline_text = function(y, text_val) {
     .text(text_val).attr({"text-anchor": "middle"});
 };
 
+var add_timeline_obj = function(o) {
+  var y_var = timeline_y[o.time_offset];
+  console.log(y_var);
+  add_timeline_text(y_var, o.text);
+  // add_timeline_text(FIRST_MONTH_Y, "1st month");
+  // add_timeline_text(FIRST_FALL_Y, "1st Fall");
+  // add_timeline_text(FIRST_SPRING_Y, "1st Spring");
+  // add_timeline_text(THIRD_SEM_Y, "3rd Semester");
+  // add_timeline_text(FOURTH_SEM_Y, "4th Semester");
+  //add_timeline_text(FIRST_FALL_Y, "1st Fall");
+};
 var do_draw_timeline = function() {
   canvas_root.append("rect")
     .attr({'x': TIMELINE_X, 'y': TIMELINE_Y,
@@ -94,12 +125,9 @@ var do_draw_timeline = function() {
            "font-size":"10pt", "fill": "grey",
            "text-anchor": "middle"})
     .text("candidacy");
-  add_timeline_text(FIRST_MONTH_Y, "1st month");
-  add_timeline_text(FIRST_FALL_Y, "1st Fall");
-  add_timeline_text(FIRST_SPRING_Y, "1st Spring");
-  add_timeline_text(THIRD_SEM_Y, "3rd Semester");
-  add_timeline_text(FOURTH_SEM_Y, "4th Semester");
-  //add_timeline_text(FIRST_FALL_Y, "1st Fall");
+  for (o of timeline_objs) {
+    add_timeline_obj(o);
+  }
 };
 
 var add_eeb_text = function(y, text_val, lg_vec) {
