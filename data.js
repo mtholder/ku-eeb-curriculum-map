@@ -10,7 +10,7 @@ var all_events = [
       0,
       0
     ],
-    "timing": "FIRST_FALL",
+    "timing": "1",
     "title": "841 Biometry I",
     "type": "class"
   },
@@ -21,7 +21,7 @@ var all_events = [
       0,
       0
     ],
-    "timing": "FIRST_SPRING",
+    "timing": "2",
     "title": "801 Core Topics in Current EEB Res",
     "type": "class"
   },
@@ -32,7 +32,7 @@ var all_events = [
       0,
       0
     ],
-    "timing": "FIRST_FALL",
+    "timing": "1",
     "title": "805 Scintfc Intgrty Ecol&Evol Biol",
     "type": "class"
   },

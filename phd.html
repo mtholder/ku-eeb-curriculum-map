@@ -49,30 +49,39 @@ var EEB_WIDTH = 120;
 var EEB_TEXT_WIDTH = EEB_WIDTH - 10;
 var MID_EEB_X = EEB_X  + (EEB_WIDTH/2);
 
-var CLASS_X = EEB_X  + EEB_WIDTH + 40;
+var CLASS_WIDTH = 2* EEB_WIDTH;
+var CLASS_X = EEB_X + (EEB_WIDTH + CLASS_WIDTH)/2 + 40;
 var CLASS_Y = EEB_Y;
 var CLASS_TEXT_PUSH_Y = EEB_TEXT_PUSH_Y;
-var CLASS_WIDTH = EEB_WIDTH;
 var CLASS_TEXT_WIDTH = CLASS_WIDTH - 10;
 var MID_CLASS_X = CLASS_X  + (CLASS_WIDTH/2);
 
-
 var FIRST_MONTH_Y = TIMELINE_Y + 20;
-var FIRST_FALL_Y = FIRST_MONTH_Y + 20;
-var FIRST_SPRING_Y = FIRST_FALL_Y + 50;
-var THIRD_SEM_Y = FIRST_SPRING_Y + 50;
+var FIRST_SEMESTER_Y = FIRST_MONTH_Y + 20;
+var SEM_GAP_Y = 50;
+var FIRST_FALL_Y = FIRST_SEMESTER_Y;
+var FIRST_SPRING_Y = FIRST_FALL_Y + SEM_GAP_Y;
+var THIRD_SEM_Y = FIRST_SPRING_Y + SEM_GAP_Y;
 var START_THIRD_SEMESTER_Y = THIRD_SEM_Y - 40;
 var BEFORE_ORALS_Y = THIRD_SEM_Y - 20;
 var CANDIDACY_Y = THIRD_SEM_Y + 15;
-var FOURTH_SEM_Y = CANDIDACY_Y + 35;
+var FOURTH_SEM_Y = THIRD_SEM_Y + SEM_GAP_Y;
 var EARLY_FOURTH_SEMESTER_Y = FOURTH_SEM_Y - 20;
 var AFTER_CANDIDACY_Y = FOURTH_SEM_Y + 25;
-var THIRD_YEAR_Y = FOURTH_SEM_Y + 80;
-var FOURTH_YEAR_Y = THIRD_YEAR_Y + 80;
+var THIRD_YEAR_Y = FOURTH_SEM_Y + SEM_GAP_Y;
+var FOURTH_YEAR_Y = THIRD_YEAR_Y + 2*SEM_GAP_Y;
 var EARLY_FIFTH_SEMESTER_Y = THIRD_YEAR_Y - 20;
 var DEFENSE_Y = CANVAS_HEIGHT - 20;
 var BEFORE_DEFENSE_Y = DEFENSE_Y - 20;
 ///////////////////////////////////////////////////////////////////////////
+
+var class_by_sem = [];
+
+function isInteger(value) {
+  return /^\d+$/.test(value);
+}
+
+
 var parse_timing = function(ts) {
   var name_to_num = {
     "AFTER_CANDIDACY": AFTER_CANDIDACY_Y,
@@ -88,6 +97,9 @@ var parse_timing = function(ts) {
     "EARLY_FOURTH_SEMESTER": EARLY_FOURTH_SEMESTER_Y,
     "EARLY_FIFTH_SEMESTER": EARLY_FIFTH_SEMESTER_Y,
     "BEFORE_DEFENSE_DATE": BEFORE_DEFENSE_Y,
+  }
+  if (isInteger(ts)) {
+    return parseInt(ts, 10);
   }
   if (ts in name_to_num) {
     return name_to_num[ts];
@@ -132,6 +144,7 @@ var timeline_objs = [{
     "text": "4th Semester"
   }
 ];
+
 
 
 
@@ -218,9 +231,17 @@ var do_draw_eeb_events = function() {
 
 
 var add_class_obj = function(o) {
-  var y = o.timing;
+  var semester_num = o.timing;
+  while (semester_num >= class_by_sem.length) {
+    class_by_sem[class_by_sem.length] = [];
+  }
+  var rel_sem = class_by_sem[semester_num];
+  var x_offset = CLASS_WIDTH * rel_sem.length;
+  rel_sem[rel_sem.length] = o;
+  var sem_index = semester_num - 1;
+  var y = sem_index * SEM_GAP_Y + FIRST_SEMESTER_Y;
   canvas_root.append('text')
-    .attr({"x": MID_CLASS_X,
+    .attr({"x": MID_CLASS_X + x_offset,
            "y":  y + CLASS_TEXT_PUSH_Y,
            "class": "eebclass"})
     .text(o.title).attr({"text-anchor": "middle"});
