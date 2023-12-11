@@ -45,14 +45,14 @@ var MID_TIMELINE_X = TIMELINE_X  + (TIMELINE_WIDTH/2);
 var EEB_X = TIMELINE_X + TIMELINE_WIDTH + 40;
 var EEB_Y = TIMELINE_Y;
 var EEB_TEXT_PUSH_Y = TL_TEXT_PUSH_Y;
-var EEB_WIDTH = 120;
+var EEB_WIDTH = 180;
 var EEB_TEXT_WIDTH = EEB_WIDTH - 10;
 var MID_EEB_X = EEB_X  + (EEB_WIDTH/2);
 
 var CLASS_WIDTH = 2* EEB_WIDTH;
-var CLASS_X = EEB_X + (EEB_WIDTH + CLASS_WIDTH)/2 + 40;
+var CLASS_X = EEB_X + (EEB_WIDTH + CLASS_WIDTH)/2 ;
 var CLASS_Y = EEB_Y;
-var CLASS_TEXT_PUSH_Y = EEB_TEXT_PUSH_Y;
+var CLASS_TEXT_PUSH_Y = EEB_TEXT_PUSH_Y + 4;
 var CLASS_TEXT_WIDTH = CLASS_WIDTH - 10;
 var MID_CLASS_X = CLASS_X  + (CLASS_WIDTH/2);
 
@@ -210,7 +210,41 @@ var add_eeb_text = function(y, text_val, lg_vec) {
     .text(text_val).attr({"text-anchor": "middle"});
 };
 
+var outcome_col = [["#FFF", "#FAA", "#F77", "#F00", ],
+                   ["#FFF", "#FFB", "#FF7", "#FF0", ],
+                   ["#FFF", "#BBF", "#77F", "#00F", ],
+                   ["#FFF", "#BFF", "#8DD", "#0BB", ],
+                  ];
+var add_outcomes_boxes = function(o, x, y, height, full_width) {
+  var outcomes = o.outcomes;
+  var ov;
+  var oid = 0;
+  var width = full_width/4;
+  for (ov of outcomes) {
+    canvas_root.append('rect')
+      .attr({"x": x + width*oid,
+             "y":  y,
+             "height": height,
+             "width": width,
+             "fill": outcome_col[oid][ov],});
+    oid += 1;
+  }
+};
+
 var add_eeb_obj = function(o) {
+  var y = o.timing - 2;
+  var x = MID_EEB_X - (EEB_WIDTH/2) + 5;
+  var width = EEB_WIDTH;
+  var height = (SEM_GAP_Y - 10)/2;
+  canvas_root.append('rect')
+    .attr({"x": x,
+           "y":  y,
+           "height": height,
+           "width": width,
+           "fill": "transparent",
+           "stroke": "#000"});
+  var half_height = height/2;
+  add_outcomes_boxes(o, x+1, y + half_height + 2, half_height - 3, width-2);
   add_eeb_text(o.timing, o.title, o.outcomes);
 }
 
@@ -229,6 +263,7 @@ var do_draw_eeb_events = function() {
   }
 }
 
+var classFill = "#DDD";
 
 var add_class_obj = function(o) {
   var semester_num = o.timing;
@@ -240,11 +275,24 @@ var add_class_obj = function(o) {
   rel_sem[rel_sem.length] = o;
   var sem_index = semester_num - 1;
   var y = sem_index * SEM_GAP_Y + FIRST_SEMESTER_Y;
+  var x = MID_CLASS_X + x_offset - (CLASS_WIDTH/2) + 5;
+  var height = SEM_GAP_Y - 10;
+  var width = CLASS_WIDTH - 10;
+  canvas_root.append('rect')
+    .attr({"x": x,
+           "y": y,
+           "height": height,
+           "width": width,
+           "fill": classFill,
+           "stroke": "#000"});
+  var half_height = height/2;
+  add_outcomes_boxes(o, x + 2, y + half_height + 2, half_height - 4, width -4);
   canvas_root.append('text')
     .attr({"x": MID_CLASS_X + x_offset,
            "y":  y + CLASS_TEXT_PUSH_Y,
            "class": "eebclass"})
     .text(o.title).attr({"text-anchor": "middle"});
+
 
 }
 
