@@ -51,6 +51,10 @@ def parse_csv(inp):
             assert 0 <= o <= 3
         number_el = row[Row.NUMBER]
         title = row[Row.TITLE].strip()
+        topics_pref = "topics in:"
+        if title.lower().startswith(topics_pref):
+            title = title[len(topics_pref):]
+            title = title.strip()
         if number_el.lower() == "event":
             obj = {"type": "event"}
         else:
@@ -76,7 +80,11 @@ def parse_csv(inp):
 def main(fp):
     with open(fp, "r", encoding="utf-8") as inp:
         x = parse_csv(inp)
-    print(json.dumps(x, sort_keys=True, indent=2))
+    data = json.dumps(x, sort_keys=True, indent=2)
+    print(f"""////////////////////////////////////////////////////////////////////////
+// Data to be read from upload, at some point...
+var all_events = {data}
+""")
 
 
 if __name__ == "__main__":

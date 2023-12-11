@@ -22,7 +22,7 @@ var all_events = [
       0
     ],
     "timing": "FIRST_SPRING",
-    "title": "801 Topics in: Core Topics in Current EEB Res",
+    "title": "801 Core Topics in Current EEB Res",
     "type": "class"
   },
   {
@@ -398,7 +398,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: African Biodiversity",
+    "title": "701 African Biodiversity",
     "type": "class"
   },
   {
@@ -409,7 +409,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Biodiversity-Ecosystem Functio",
+    "title": "701 Biodiversity-Ecosystem Functio",
     "type": "class"
   },
   {
@@ -420,7 +420,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Biology of Dispersal",
+    "title": "701 Biology of Dispersal",
     "type": "class"
   },
   {
@@ -431,7 +431,7 @@ var all_events = [
       2,
       0
     ],
-    "title": "701 Topics in: Computer Science for Biology",
+    "title": "701 Computer Science for Biology",
     "type": "class"
   },
   {
@@ -442,7 +442,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Ecol&Evol Host Microbiome Intr",
+    "title": "701 Ecol&Evol Host Microbiome Intr",
     "type": "class"
   },
   {
@@ -453,7 +453,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Ecology of Infectious Diseases",
+    "title": "701 Ecology of Infectious Diseases",
     "type": "class"
   },
   {
@@ -464,7 +464,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Field Botany",
+    "title": "701 Field Botany",
     "type": "class"
   },
   {
@@ -475,7 +475,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Genome Biology",
+    "title": "701 Genome Biology",
     "type": "class"
   },
   {
@@ -486,7 +486,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Intro Mathematical Epidemiol",
+    "title": "701 Intro Mathematical Epidemiol",
     "type": "class"
   },
   {
@@ -497,7 +497,7 @@ var all_events = [
       2,
       0
     ],
-    "title": "701 Topics in: Likelihood Methods in Biology",
+    "title": "701 Likelihood Methods in Biology",
     "type": "class"
   },
   {
@@ -508,7 +508,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Lizards",
+    "title": "701 Lizards",
     "type": "class"
   },
   {
@@ -519,7 +519,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Measuring Biodiversity",
+    "title": "701 Measuring Biodiversity",
     "type": "class"
   },
   {
@@ -530,7 +530,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Microbiomes: Data to Insight",
+    "title": "701 Microbiomes: Data to Insight",
     "type": "class"
   },
   {
@@ -541,7 +541,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Native&Western Views of Nature",
+    "title": "701 Native&Western Views of Nature",
     "type": "class"
   },
   {
@@ -552,7 +552,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Natural Resource Management",
+    "title": "701 Natural Resource Management",
     "type": "class"
   },
   {
@@ -563,7 +563,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Neotropical Biogeo&Diversifctn",
+    "title": "701 Neotropical Biogeo&Diversifctn",
     "type": "class"
   },
   {
@@ -573,7 +573,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Population Biology",
+    "title": "701 Population Biology",
     "type": "class"
   },
   {
@@ -584,7 +584,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Principles of Insect Morpholgy",
+    "title": "701 Principles of Insect Morpholgy",
     "type": "class"
   },
   {
@@ -595,7 +595,7 @@ var all_events = [
       2,
       0
     ],
-    "title": "701 Topics in: Programming in R",
+    "title": "701 Programming in R",
     "type": "class"
   },
   {
@@ -606,7 +606,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "701 Topics in: Quantitative Genetics",
+    "title": "701 Quantitative Genetics",
     "type": "class"
   },
   {
@@ -617,7 +617,7 @@ var all_events = [
       0,
       2
     ],
-    "title": "701 Topics in: Rdgs Evlutnry Genetcs&Genomics",
+    "title": "701 Rdgs Evlutnry Genetcs&Genomics",
     "type": "class"
   },
   {
@@ -628,7 +628,7 @@ var all_events = [
       0,
       2
     ],
-    "title": "701 Topics in: Readings in Ecosystem Science",
+    "title": "701 Readings in Ecosystem Science",
     "type": "class"
   },
   {
@@ -639,7 +639,7 @@ var all_events = [
       2,
       0
     ],
-    "title": "701 Topics in: Simulating the Covid Pandemic",
+    "title": "701 Simulating the Covid Pandemic",
     "type": "class"
   },
   {
@@ -650,7 +650,7 @@ var all_events = [
       2,
       0
     ],
-    "title": "701 Topics in: Simultn Modlg Biol",
+    "title": "701 Simultn Modlg Biol",
     "type": "class"
   },
   {
@@ -660,7 +660,7 @@ var all_events = [
       0,
       2
     ],
-    "title": "701 Topics in: Writing Scientific Papers",
+    "title": "701 Writing Scientific Papers",
     "type": "class"
   },
   {
@@ -746,7 +746,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "801 Topics in: Adv Topics in Paleobiology",
+    "title": "801 Adv Topics in Paleobiology",
     "type": "class"
   },
   {
@@ -757,7 +757,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "801 Topics in: Biogeochemistry",
+    "title": "801 Biogeochemistry",
     "type": "class"
   },
   {
@@ -768,7 +768,7 @@ var all_events = [
       2,
       0
     ],
-    "title": "801 Topics in: Data Carpentry",
+    "title": "801 Data Carpentry",
     "type": "class"
   },
   {
@@ -779,7 +779,7 @@ var all_events = [
       0,
       2
     ],
-    "title": "801 Topics in: EEB Genetics",
+    "title": "801 EEB Genetics",
     "type": "class"
   },
   {
@@ -790,7 +790,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "801 Topics in: Foundations of Speciation",
+    "title": "801 Foundations of Speciation",
     "type": "class"
   },
   {
@@ -801,7 +801,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "801 Topics in: Kansas Plants and Landscapes",
+    "title": "801 Kansas Plants and Landscapes",
     "type": "class"
   },
   {
@@ -812,7 +812,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "801 Topics in: Macroevolution",
+    "title": "801 Macroevolution",
     "type": "class"
   },
   {
@@ -823,7 +823,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "801 Topics in: Molecular Systematics",
+    "title": "801 Molecular Systematics",
     "type": "class"
   },
   {
@@ -1036,5 +1036,5 @@ var all_events = [
     "title": "595 Human Genetics",
     "type": "class"
   }
-];
+]
 

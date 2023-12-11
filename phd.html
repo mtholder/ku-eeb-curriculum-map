@@ -14,6 +14,9 @@ and http://bl.ocks.org/mbostock/4063550
 .eebevent {
   font-size: 14px;
 }
+.eebclass {
+  font-size: 14px;
+}
 
 </style>
 </head>
@@ -29,7 +32,7 @@ and http://bl.ocks.org/mbostock/4063550
 <script>
 ////////////////////////////////////////////////////////////////////////
 // HARD-CODED CONSTANTS
-var CANVAS_WIDTH = 290;
+var CANVAS_WIDTH = 1200;
 var CANVAS_HEIGHT = 520;
 
 var TIMELINE_X = 5;
@@ -45,6 +48,13 @@ var EEB_TEXT_PUSH_Y = TL_TEXT_PUSH_Y;
 var EEB_WIDTH = 120;
 var EEB_TEXT_WIDTH = EEB_WIDTH - 10;
 var MID_EEB_X = EEB_X  + (EEB_WIDTH/2);
+
+var CLASS_X = EEB_X  + EEB_WIDTH + 40;
+var CLASS_Y = EEB_Y;
+var CLASS_TEXT_PUSH_Y = EEB_TEXT_PUSH_Y;
+var CLASS_WIDTH = EEB_WIDTH;
+var CLASS_TEXT_WIDTH = CLASS_WIDTH - 10;
+var MID_CLASS_X = CLASS_X  + (CLASS_WIDTH/2);
 
 
 var FIRST_MONTH_Y = TIMELINE_Y + 20;
@@ -187,6 +197,10 @@ var add_eeb_text = function(y, text_val, lg_vec) {
     .text(text_val).attr({"text-anchor": "middle"});
 };
 
+var add_eeb_obj = function(o) {
+  add_eeb_text(o.timing, o.title, o.outcomes);
+}
+
 var do_draw_eeb_events = function() {
   canvas_root.append('text')
     .attr({"x":MID_EEB_X, "y": EEB_Y + 15,
@@ -197,7 +211,33 @@ var do_draw_eeb_events = function() {
   var o;
   for (o of non_class_events) {
     if (o.timing !== undefined) {
-      add_eeb_text(o.timing, o.title, o.outcomes);
+      add_eeb_obj(o);
+    }
+  }
+}
+
+
+var add_class_obj = function(o) {
+  var y = o.timing;
+  canvas_root.append('text')
+    .attr({"x": MID_CLASS_X,
+           "y":  y + CLASS_TEXT_PUSH_Y,
+           "class": "eebclass"})
+    .text(o.title).attr({"text-anchor": "middle"});
+
+}
+
+var do_draw_classes = function() {
+  canvas_root.append('text')
+    .attr({"x":MID_CLASS_X, "y": CLASS_Y + 15,
+           "font-size":"10pt", "fill": "grey",
+           "text-anchor": "middle"})
+    .text("Classes");
+
+  var o;
+  for (o of classes) {
+    if (o.timing !== undefined) {
+      add_class_obj(o);
     }
   }
 }
@@ -206,6 +246,7 @@ $(document).ready(function() {
   do_parse_all_data(all_events);
   do_draw_timeline();
   do_draw_eeb_events();
+  do_draw_classes();
 });
 </script>
 
