@@ -63,7 +63,7 @@ var all_events = [
       2,
       0
     ],
-    "timing": "AFTER_CANDIDACY",
+    "timing": "7",
     "title": "999 Doctoral Dissertation",
     "type": "class"
   },
@@ -74,7 +74,7 @@ var all_events = [
       3,
       0
     ],
-    "timing": "AFTER_CANDIDACY",
+    "timing": "9",
     "title": "999 Doctoral Dissertation",
     "type": "class"
   },
