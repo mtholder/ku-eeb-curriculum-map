@@ -17,6 +17,15 @@ and http://bl.ocks.org/mbostock/4063550
 .eebclass {
   font-size: 14px;
 }
+.keycode {
+  width: 12px;
+  height: 12px;
+  margin: auto;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 2px;
+  border: 1px solid black;
+}
 
 </style>
 </head>
@@ -25,6 +34,93 @@ and http://bl.ocks.org/mbostock/4063550
 <script src="jquery/jquery.v2.min.js"></script>
 <script src="./data.js"> </script>
 <p id="help"></p>
+
+<!-- If you change colors, outcome_col!
+var outcome_col = [[ "#FFF", "#FAA", "#F77", "#F00", ],
+                   ["#FFF", "#FFB", "#FF7", "#FF0", ],
+                   ["#FFF", "#BBF", "#77F", "#00F", ],
+                   ["#FFF", "#BFF", "#8DD", "#0BB", ],
+                  ]; -->
+<div>
+<h2>EEB Expected Learning Outcomes</h2>
+<h3>Outcome 1 Demonstrate an understanding of ecology and evolutionary biology</h3>
+<ol>
+  <li> <span class="keycode"  style="background: #FAA;" ></span>
+    Awareness of basic and key questions and theories in EEB.
+  </li>
+  <li> <span class="keycode"  style="background: #F77;" ></span>
+    Understanding of basic and key questions and theories in EEB
+  </li>
+  <li> <span class="keycode"  style="background: #F00;" ></span>
+    Application and synthesis of basic and key questions and theories in EEB 
+  </li>
+</ol>
+<p> KU institution-level learning goals roughly correspond or match:
+<ul>
+  <li><b>Analytical reasoning</b></li>
+</ul>
+</div>
+
+<hr />
+<h3>Outcome 2 Demonstrate an understanding of best research practices & ethics in EEB </h3>
+<ol>
+  <li> <span class="keycode"  style="background: #FFB;" ></span>
+    Awareness of basic research ethics and professional codes of conduct.
+  </li>
+  <li> <span class="keycode"  style="background: #FF7;" ></span>
+    Development of key analytical skills such as statistics
+  </li>
+  <li> <span class="keycode"  style="background: #FF0;" ></span>
+    Application of best research practices and ethics
+  </li>
+</ol>
+<p> KU institution-level learning goals roughly correspond or match:
+<ul>
+  <li><b>Analytical reasoning</b></li>
+  <li><b>Ethical and professional responsibility </b></li>
+</ul>
+</div>
+
+<hr />
+<h3>Outcome 3 Demonstrate the ability to perform independent research in ecology and/or evolutionary biology</h3>
+<ol>
+  <li> <span class="keycode"  style="background: #BBF;" ></span>
+    Outlining a research idea or topic, including proposed methods 
+  </li>
+  <li> <span class="keycode"  style="background: #77F;" ></span>
+    Execution and justification of a research proposal on a novel question in EEB, including its methodology and hypothesized outcomes
+  </li>
+  <li> <span class="keycode"  style="background: #00F;" ></span>
+    Completion of dissertation research
+  </li>
+</ol>
+<p> KU institution-level learning goals roughly correspond or match:
+<ul>
+  <li><b>Creative inquiry and discovery </b></li>
+</ul>
+</div>
+
+<hr />
+<h3>Outcome 4 Demonstrate the ability to disseminate research findings </h3>
+<ol>
+  <li> <span class="keycode"  style="background: #BFF;" ></span>
+    Ability to discuss research and primarily literature 
+  </li>
+  <li> <span class="keycode"  style="background: #8DD;" ></span>
+    Ability to articulate original research questions, methods, and approaches.  
+  </li>
+  <li> <span class="keycode"  style="background: #0BB;" ></span>
+    Synthesize and communicate the findings of original research to a research audience 
+  </li>
+</ol>
+<p> KU institution-level learning goals roughly correspond or match:
+<ul>
+  <li><b>Effective communication</b></li>
+</ul>
+</div>
+<hr />
+<h2>EEB PhD Curriculum Map</h2>
+<p><i>Note: This is still a work-in-progress!</i> The map will be interactive, allowing placement of classes and events onto a grid representing the timeline. Feel free to send comments/suggestions to <a href="mailto:mtholder@ku.edu">mtholder@ku.edu</a></p>
 <div>
   <div id="canvas"/>
 </div>
@@ -217,6 +313,7 @@ var add_eeb_text = function(y, text_val, lg_vec) {
     .text(text_val).attr({"text-anchor": "middle"});
 };
 
+// If you change this, change the key, too!
 var outcome_col = [["#FFF", "#FAA", "#F77", "#F00", ],
                    ["#FFF", "#FFB", "#FF7", "#FF0", ],
                    ["#FFF", "#BBF", "#77F", "#00F", ],
