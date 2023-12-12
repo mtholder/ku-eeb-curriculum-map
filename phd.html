@@ -294,9 +294,9 @@ var display_class_obj = function(o, x, y, width, height) {
 var add_untimed_class_obj = function(o) {
   var x = TIMELINE_X + CLASS_WIDTH*(untimed_class_list.length % 4);
   var row_ind = Math.floor(untimed_class_list.length / 4);
-  var y = UNTIMED_CLASS_Y + SEM_GAP_Y*(1+row_ind);
+  var y = UNTIMED_CLASS_Y - 40 + SEM_GAP_Y*(1+row_ind);
   var width = CLASS_WIDTH;
-  var height = (SEM_GAP_Y - 10)/2;
+  var height = (SEM_GAP_Y - 10);
   display_class_obj(o, x, y, width, height);
   //add_eeb_text(y, o.title, o.outcomes);
   //console.log("x=" + x + ", y=" + y + ", text=" +o.title + "\n");
