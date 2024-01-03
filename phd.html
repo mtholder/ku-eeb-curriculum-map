@@ -178,7 +178,7 @@ var class_by_sem = [];
 var untimed_event_list = [];
 var untimed_class_list = [];
 var classFill = "#DDD";
-
+var gID = 1;
 
 function isInteger(value) {
   return /^\d+$/.test(value);
@@ -434,6 +434,18 @@ var do_draw_eeb_events = function() {
   }
 }
 
+var dragcontainer = d3.drag()
+  .on("drag", function(d, i) {
+    var el = d3.select(this);
+    console.log("el id = " + el.attr("id"))
+    // for (des of el.descendants()) {
+    //   des.translate(d3.event.x, d3.event.y);
+    // }
+    var children = el.selectChildren();
+    children.attr("transform", "translate(" + d.dx + ", " + d.dy + ")");
+    //d3.select(this).attr("transform", "translate(" + (d.x = d3.event.x) + "," + (d.y = d3.event.y) + ")");
+  });
+
 var add_class_obj = function(o) {
   var semester_num = o.timing;
   while (semester_num >= class_by_sem.length) {
@@ -447,7 +459,12 @@ var add_class_obj = function(o) {
   var x = MID_CLASS_X + x_offset - (CLASS_WIDTH/2) + 5;
   var height = SEM_GAP_Y - 10;
   var width = CLASS_WIDTH - 10;
-  var group_el = canvas_root.append("g");
+  var group_id = "group" + gID;
+  gID += 1;
+  var group_el = canvas_root.append("g")
+    .attr("id", group_id)
+    .attr("x", 0)
+    .attr("y", 0);
   display_class_obj(group_el, o, x, y, width, height);
   console.log(o.title + " at (" + x + ", " + y + ")")
   group_el.append('text')
@@ -456,6 +473,7 @@ var add_class_obj = function(o) {
     .attr("class", "eebclass")
     .text(o.title)
       .attr("text-anchor", "middle");
+  d3.select("#" + group_id).datum({x: 0, y: 0}).call(dragcontainer)
 }
 
 var do_draw_classes = function() {
