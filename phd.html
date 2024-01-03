@@ -396,18 +396,22 @@ var display_class_obj = function(group_el, o, x, y, width, height) {
   add_outcomes_boxes(group_el, o, x + 2, y + half_height + 2, half_height - 4, width -4);
 };
 
-var dragcontainer = d3.drag()
-  .on("drag", function(d, i) {
-    var el = d3.select(this);
-    console.log("el id = " + el.attr("id"))
-    // for (des of el.descendants()) {
-    //   des.translate(d3.event.x, d3.event.y);
-    // }
-    var children = el.selectChildren();
-    children.attr("transform", "translate(" + d.dx + ", " + d.dy + ")");
-    //d3.select(this).attr("transform", "translate(" + (d.x = d3.event.x) + "," + (d.y = d3.event.y) + ")");
-  });
+// var dragcontainer = d3.drag()
+//   .on("drag", function(d, i) {
+//     var el = d3.select(this);
+//     console.log("el id = " + el.attr("id"))
+//     // for (des of el.descendants()) {
+//     //   des.translate(d3.event.x, d3.event.y);
+//     // }
+//     var children = el.selectChildren();
+//     children.attr("transform", "translate(" + d.dx + ", " + d.dy + ")");
+//     //d3.select(this).attr("transform", "translate(" + (d.x = d3.event.x) + "," + (d.y = d3.event.y) + ")");
+//   });
 
+var dragcontainer = d3.drag()
+  .on("drag", function(event, d, i) {
+    d3.select(this).attr("transform", "translate(" + (d.x = event.x) + "," + (d.y = event.y) + ")");
+  });
 
 var add_untimed_class_obj = function(o) {
   var x = TIMELINE_X + CLASS_WIDTH*(untimed_class_list.length % 4);
@@ -416,7 +420,12 @@ var add_untimed_class_obj = function(o) {
   var width = CLASS_WIDTH;
   var height = (SEM_GAP_Y - 10);
 
-  var group_el = canvas_root.append("g");
+  var group_id = "group" + gID;
+  gID += 1;
+  var group_el = canvas_root.append("g")
+    .attr("id", group_id)
+    .attr("x", 0)
+    .attr("y", 0);
   display_class_obj(group_el, o, x, y, width, height);
   //add_eeb_text(y, o.title, o.outcomes);
   //console.log("x=" + x + ", y=" + y + ", text=" +o.title + "\n");
@@ -426,6 +435,8 @@ var add_untimed_class_obj = function(o) {
     .attr("class", "eebevent")
     .text(o.title).attr("text-anchor", "middle");
   untimed_class_list[untimed_class_list.length] = o;
+
+  d3.select("#" + group_id).datum({"x": 0, "y": 0}).call(dragcontainer);
 };
 
 var do_draw_eeb_events = function() {
@@ -475,7 +486,7 @@ var add_class_obj = function(o) {
     .attr("class", "eebclass")
     .text(o.title)
       .attr("text-anchor", "middle");
-  d3.select("#" + group_id).datum({x: 0, y: 0}).call(dragcontainer);
+  d3.select("#" + group_id).datum({"x": 0, "y": 0}).call(dragcontainer);
 }
 
 var do_draw_classes = function() {
