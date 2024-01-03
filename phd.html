@@ -30,7 +30,7 @@ and http://bl.ocks.org/mbostock/4063550
 </style>
 </head>
 <body>
-<script src="d3/d3.v3.min.js"></script>
+<script src="d3/d3.v7.min.js"></script>
 <script src="jquery/jquery.v2.min.js"></script>
 <script src="./data.js"> </script>
 <p id="help"></p>
@@ -252,8 +252,8 @@ var timeline_objs = [{
 
 
 var canvas_root = d3.select('#canvas').append('svg')
-    .attr({'width':  CANVAS_WIDTH,
-           'height': CANVAS_HEIGHT,})
+    .attr('width', CANVAS_WIDTH)
+    .attr('height', CANVAS_HEIGHT)
     .style('background', 'white');
 
 // var g_el = canvas_root.selectAll('g')
@@ -262,10 +262,11 @@ var canvas_root = d3.select('#canvas').append('svg')
 
 var add_timeline_text = function(y, text_val) {
   canvas_root.append('text')
-    .attr({"x": MID_TIMELINE_X,
-           "y":  y + TL_TEXT_PUSH_Y,
-           "class":"timelinepoint"})
-    .text(text_val).attr({"text-anchor": "middle"});
+    .attr("x", MID_TIMELINE_X)
+    .attr("y",  y + TL_TEXT_PUSH_Y)
+    .attr("class", "timelinepoint")
+    .text(text_val)
+      .attr("text-anchor", "middle");
 };
 
 var add_timeline_obj = function(o) {
@@ -275,24 +276,32 @@ var add_timeline_obj = function(o) {
 
 var do_draw_timeline = function() {
   canvas_root.append("rect")
-    .attr({'x': TIMELINE_X, 'y': TIMELINE_Y,
-           'height': CANDIDACY_Y - TIMELINE_Y,
-           'width': TIMELINE_WIDTH,
-           'fill': "white", 'stroke': "black"});
+    .attr('x', TIMELINE_X)
+    .attr('y', TIMELINE_Y)
+    .attr('height', CANDIDACY_Y - TIMELINE_Y)
+    .attr('width', TIMELINE_WIDTH)
+    .attr('fill', "white")
+    .attr('stroke', "black");
   canvas_root.append('text')
-    .attr({"x":MID_TIMELINE_X, "y": TIMELINE_Y + 15,
-           "font-size":"10pt", "fill": "grey",
-           "text-anchor": "middle"})
+    .attr("x", MID_TIMELINE_X)
+    .attr("y", TIMELINE_Y + 15)
+    .attr("font-size", "10pt")
+    .attr("fill", "grey")
+    .attr("text-anchor", "middle")
     .text("pre-candidacy");
   canvas_root.append("rect")
-    .attr({'x': TIMELINE_X, 'y': CANDIDACY_Y,
-           'height': DEFENSE_Y - CANDIDACY_Y,
-           'width': TIMELINE_WIDTH,
-           'fill': "white", 'stroke': "black"});
+    .attr('x', TIMELINE_X)
+    .attr('y', CANDIDACY_Y)
+    .attr('height', DEFENSE_Y - CANDIDACY_Y)
+    .attr('width', TIMELINE_WIDTH)
+    .attr('fill', "white")
+    .attr('stroke', "black");
   canvas_root.append('text')
-    .attr({"x": MID_TIMELINE_X, "y": DEFENSE_Y - 15,
-           "font-size":"10pt", "fill": "grey",
-           "text-anchor": "middle"})
+    .attr("x", MID_TIMELINE_X)
+    .attr( "y", DEFENSE_Y - 15)
+    .attr("font-size", "10pt")
+    .attr( "fill", "grey")
+    .attr("text-anchor", "middle")
     .text("candidacy");
   var o;
   for (o of timeline_objs) {
@@ -302,10 +311,11 @@ var do_draw_timeline = function() {
 
 var add_eeb_text = function(group_el, y, text_val, lg_vec) {
   canvas_root.append('text')
-    .attr({"x": MID_EEB_X,
-           "y":  y + EEB_TEXT_PUSH_Y,
-           "class":"eebevent"})
-    .text(text_val).attr({"text-anchor": "middle"});
+    .attr("x", MID_EEB_X)
+    .attr("y", y + EEB_TEXT_PUSH_Y)
+    .attr("class", "eebevent")
+    .text(text_val)
+      .attr("text-anchor", "middle");
 };
 
 // If you change this, change the key, too!
@@ -321,23 +331,23 @@ var add_outcomes_boxes = function(group_el, o, x, y, height, full_width) {
   var width = full_width/4;
   for (ov of outcomes) {
     group_el.append('rect')
-      .attr({"x": x + width*oid,
-             "y":  y,
-             "height": height,
-             "width": width,
-             "fill": outcome_col[oid][ov],});
+      .attr("x", x + width*oid)
+      .attr("y", y)
+      .attr("height", height)
+      .attr("width", width)
+      .attr("fill", outcome_col[oid][ov]);
     oid += 1;
   }
 };
 
 var display_eeb_obj = function(group_el, o, x, y, width, height) {
   group_el.append('rect')
-    .attr({"x": x,
-           "y":  y,
-           "height": height,
-           "width": width,
-           "fill": "transparent",
-           "stroke": "#000"});
+    .attr("x", x)
+    .attr("y", y)
+    .attr("height", height)
+    .attr("width", width)
+    .attr("fill", "transparent")
+    .attr("stroke", "#000");
   var half_height = height/2;
   add_outcomes_boxes(group_el, o, x+1, y + half_height + 2, half_height - 3, width-2);
 };
@@ -366,22 +376,22 @@ var add_untimed_eeb_obj = function(o) {
   //add_eeb_text(y, o.title, o.outcomes);
   //console.log("x=" + x + ", y=" + y + ", text=" +o.title + "\n");
   group_el.append('text')
-    .attr({"x": TIMELINE_X + EEB_WIDTH*(untimed_event_list.length % 4) + EEB_WIDTH/2,
-           "y":  y + 10,
-           "class":"eebevent"})
-    .text(o.title).attr({"text-anchor": "middle"});
+    .attr("x", TIMELINE_X + EEB_WIDTH*(untimed_event_list.length % 4) + EEB_WIDTH/2)
+    .attr("y", y + 10)
+    .attr("class", "eebevent")
+    .text(o.title).attr("text-anchor", "middle");
   untimed_event_list[untimed_event_list.length] = o;
   
 };
 
 var display_class_obj = function(group_el, o, x, y, width, height) {
   group_el.append('rect')
-    .attr({"x": x,
-           "y": y,
-           "height": height,
-           "width": width,
-           "fill": classFill,
-           "stroke": "#000"});
+    .attr("x", x)
+    .attr("y", y)
+    .attr("height", height)
+    .attr("width", width)
+    .attr("fill", classFill)
+    .attr("stroke", "#000");
   var half_height = height/2;
   add_outcomes_boxes(group_el, o, x + 2, y + half_height + 2, half_height - 4, width -4);
 };
@@ -398,18 +408,20 @@ var add_untimed_class_obj = function(o) {
   //add_eeb_text(y, o.title, o.outcomes);
   //console.log("x=" + x + ", y=" + y + ", text=" +o.title + "\n");
   group_el.append('text')
-    .attr({"x": TIMELINE_X + CLASS_WIDTH*(untimed_class_list.length % 4) + CLASS_WIDTH/2,
-           "y":  y + 11,
-           "class":"eebevent"})
-    .text(o.title).attr({"text-anchor": "middle"});
+    .attr("x", TIMELINE_X + CLASS_WIDTH*(untimed_class_list.length % 4) + CLASS_WIDTH/2)
+    .attr("y", y + 11)
+    .attr("class", "eebevent")
+    .text(o.title).attr("text-anchor", "middle");
   untimed_class_list[untimed_class_list.length] = o;
 };
 
 var do_draw_eeb_events = function() {
   canvas_root.append('text')
-    .attr({"x":MID_EEB_X, "y": EEB_Y + 15,
-           "font-size":"10pt", "fill": "grey",
-           "text-anchor": "middle"})
+    .attr("x", MID_EEB_X)
+    .attr("y", EEB_Y + 15)
+    .attr("font-size", "10pt")
+    .attr("fill", "grey")
+    .attr("text-anchor", "middle")
     .text("Non-class events");
 
   var o;
@@ -439,19 +451,20 @@ var add_class_obj = function(o) {
   display_class_obj(group_el, o, x, y, width, height);
   console.log(o.title + " at (" + x + ", " + y + ")")
   group_el.append('text')
-    .attr({"x": MID_CLASS_X + x_offset,
-           "y":  y + CLASS_TEXT_PUSH_Y,
-           "class": "eebclass"})
-    .text(o.title).attr({"text-anchor": "middle"});
-
-
+    .attr("x", MID_CLASS_X + x_offset)
+    .attr("y", y + CLASS_TEXT_PUSH_Y)
+    .attr("class", "eebclass")
+    .text(o.title)
+      .attr("text-anchor", "middle");
 }
 
 var do_draw_classes = function() {
   canvas_root.append('text')
-    .attr({"x":MID_CLASS_X, "y": CLASS_Y + 15,
-           "font-size":"10pt", "fill": "grey",
-           "text-anchor": "middle"})
+    .attr("x", MID_CLASS_X)
+    .attr("y", CLASS_Y + 15)
+    .attr("font-size", "10pt")
+    .attr("fill", "grey")
+    .attr("text-anchor", "middle")
     .text("Classes");
 
   var o;
