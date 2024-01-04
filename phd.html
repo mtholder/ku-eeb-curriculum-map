@@ -27,11 +27,28 @@ and http://bl.ocks.org/mbostock/4063550
   border: 1px solid black;
 }
 
+.accordion {
+  background: yellow !important;
+  width: 95%;
+  font-size: 16px;
+  text-align: left;
+}
 </style>
+<link rel="stylesheet" href="jquery/jquery-ui-1.13.2.custom/jquery-ui.theme.css"> 
+
+<script src="jquery/jquery.v2.min.js"></script>
+<script src="jquery/jquery-ui-1.13.2.custom/jquery-ui.min.js"> </script>
+
+<script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  } );
+</script>
 </head>
 <body>
 <script src="d3/d3.v7.min.js"></script>
-<script src="jquery/jquery.v2.min.js"></script>
 <script src="./data.js"> </script>
 <p id="help"></p>
 
@@ -41,9 +58,12 @@ var outcome_col = [[ "#FFF", "#FAA", "#F77", "#F00", ],
                    ["#FFF", "#BBF", "#77F", "#00F", ],
                    ["#FFF", "#BFF", "#8DD", "#0BB", ],
                   ]; -->
-<div>
+<div id="accordion" class="ui-accordion-header">
+<!--button class="accordion" onclick="toggleLO()">Hide EEB Expected Learning Outcomes</button!-->
 <h2>EEB Expected Learning Outcomes</h2>
-<h3>Outcome 1 Demonstrate an understanding of ecology and evolutionary biology</h3>
+
+<div id="locontent">
+<h3 >Outcome 1 Demonstrate an understanding of ecology and evolutionary biology</h3>
 <ol>
   <li> <span class="keycode"  style="background: #FAA;" ></span>
     Awareness of basic and key questions and theories in EEB.
@@ -59,8 +79,7 @@ var outcome_col = [[ "#FFF", "#FAA", "#F77", "#F00", ],
 <ul>
   <li><b>Analytical reasoning</b></li>
 </ul>
-</div>
-
+</p>
 <hr />
 <h3>Outcome 2 Demonstrate an understanding of best research practices & ethics in EEB </h3>
 <ol>
@@ -79,8 +98,7 @@ var outcome_col = [[ "#FFF", "#FAA", "#F77", "#F00", ],
   <li><b>Analytical reasoning</b></li>
   <li><b>Ethical and professional responsibility </b></li>
 </ul>
-</div>
-
+</p>
 <hr />
 <h3>Outcome 3 Demonstrate the ability to perform independent research in ecology and/or evolutionary biology</h3>
 <ol>
@@ -98,8 +116,7 @@ var outcome_col = [[ "#FFF", "#FAA", "#F77", "#F00", ],
 <ul>
   <li><b>Creative inquiry and discovery </b></li>
 </ul>
-</div>
-
+</p>
 <hr />
 <h3>Outcome 4 Demonstrate the ability to disseminate research findings </h3>
 <ol>
@@ -117,7 +134,10 @@ var outcome_col = [[ "#FFF", "#FAA", "#F77", "#F00", ],
 <ul>
   <li><b>Effective communication</b></li>
 </ul>
+</p>
 </div>
+</div>
+
 <hr />
 <h2>EEB PhD Curriculum Map</h2>
 <p><i>Note: This is still a work-in-progress!</i> The map will be interactive, allowing placement of classes and events onto a grid representing the timeline. Feel free to send comments/suggestions to <a href="mailto:mtholder@ku.edu">mtholder@ku.edu</a></p>
@@ -171,7 +191,7 @@ var DEFENSE_Y = 500;
 var BEFORE_DEFENSE_Y = DEFENSE_Y - 20;
 var UNTIMED_EEB_Y = DEFENSE_Y + 20;
 var UNTIMED_CLASS_Y = UNTIMED_EEB_Y + 20;
-
+var lo_visible = true;
 ///////////////////////////////////////////////////////////////////////////
 
 var class_by_sem = [];
@@ -184,6 +204,15 @@ function isInteger(value) {
   return /^\d+$/.test(value);
 }
 
+var toggleLO = function() {
+  var vval = lo_visible ? "hidden" : "visible";
+  lo_visible = ! lo_visible;
+  // d3.select("#locontent")
+  //   .transition()
+  //   .duration(900)
+  //   .style("visibility", vval);
+  collapse(d3.select("#locontent"));
+}
 
 var parse_timing = function(ts) {
   var name_to_num = {
