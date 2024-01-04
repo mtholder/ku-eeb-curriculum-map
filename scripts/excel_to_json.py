@@ -14,8 +14,9 @@ class Row(IntEnum):
     LO3 = 5
     LO4 = 6
     FOCI = 7
-    NOTES = 8
-    URL = 9
+    LEVEL = 8
+    NOTES = 9
+    URL = 10
 
 
 _lo_indices = [Row.LO1, Row.LO2, Row.LO3, Row.LO4]
@@ -56,6 +57,7 @@ def parse_csv(inp):
         foci = ",".join(foci_list)
         for o in lo_vec:
             assert 0 <= o <= 3
+        level = row[Row.LEVEL].strip()
         number_el = row[Row.NUMBER]
         title = row[Row.TITLE].strip()
         topics_pref = "topics in:"
@@ -72,6 +74,8 @@ def parse_csv(inp):
         if timing:
             obj["timing"] = timing
         obj["outcomes"] = lo_vec
+        if level:
+            obj["level"] = level
         if foci:
             obj["foci"] = foci
         notes = row[Row.NOTES].strip()

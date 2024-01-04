@@ -3,6 +3,7 @@
 var all_events = [
   {
     "foci": "stats",
+    "notes": "The application of statistical methods to data from various fields of biological research. Special emphasis is placed on practical computational procedures.",
     "outcomes": [
       0,
       2,
@@ -11,8 +12,7 @@ var all_events = [
     ],
     "timing": "1",
     "title": "841 Biometry I",
-    "type": "class",
-    "urls": "The application of statistical methods to data from various fields of biological research. Special emphasis is placed on practical computational procedures."
+    "type": "class"
   },
   {
     "outcomes": [
@@ -37,7 +37,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "notes": "mat",
+    "level": "mat",
     "outcomes": [
       3,
       3,
@@ -69,7 +69,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "notes": "phd",
+    "level": "phd",
     "outcomes": [
       2,
       2,
@@ -81,7 +81,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "notes": "phd",
+    "level": "phd",
     "outcomes": [
       3,
       3,
@@ -115,7 +115,7 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "phd",
+    "level": "phd",
     "outcomes": [
       2,
       2,
@@ -127,7 +127,7 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "mat",
+    "level": "mat",
     "outcomes": [
       3,
       3,
@@ -139,7 +139,7 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "mat",
+    "level": "mat",
     "outcomes": [
       3,
       3,
@@ -151,7 +151,7 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "mant",
+    "level": "mant",
     "outcomes": [
       3,
       3,
@@ -163,7 +163,7 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "phd",
+    "level": "phd",
     "outcomes": [
       2,
       2,
@@ -175,7 +175,7 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "phd",
+    "level": "phd",
     "outcomes": [
       2,
       2,
@@ -187,7 +187,7 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "phd",
+    "level": "phd",
     "outcomes": [
       3,
       3,
@@ -199,7 +199,7 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "phd",
+    "level": "phd",
     "outcomes": [
       3,
       3,
@@ -211,7 +211,7 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "phd",
+    "level": "phd",
     "outcomes": [
       3,
       3,
@@ -223,7 +223,7 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "phd",
+    "level": "phd",
     "outcomes": [
       3,
       3,
@@ -295,6 +295,7 @@ var all_events = [
     "type": "event"
   },
   {
+    "notes": "EEB genetics;  Ecology Friday Lunch series; BIMOL;  BigMac or other journal club/discussion group.",
     "outcomes": [
       2,
       2,
@@ -302,8 +303,7 @@ var all_events = [
       2
     ],
     "title": "lead discussion in journal club",
-    "type": "event",
-    "urls": "EEB genetics;  Ecology Friday Lunch series; BIMOL;  BigMac or other journal club/discussion group."
+    "type": "event"
   },
   {
     "outcomes": [
@@ -336,7 +336,7 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "phd",
+    "level": "phd",
     "outcomes": [
       2,
       3,
@@ -347,6 +347,7 @@ var all_events = [
     "type": "event"
   },
   {
+    "notes": "The research skills to be fulfilled is chosen by the student and their PAM committee and RAC.",
     "outcomes": [
       0,
       0,
@@ -355,8 +356,7 @@ var all_events = [
     ],
     "timing": "BEFORE_ORALS",
     "title": "complete Research Skill",
-    "type": "event",
-    "urls": "The research skills to be fulfilled is chosen by the student and their PAM committee and RAC."
+    "type": "event"
   },
   {
     "foci": "mechanisms",
