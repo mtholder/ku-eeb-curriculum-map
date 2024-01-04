@@ -25,20 +25,27 @@ def parse_csv(inp):
     x = []
     rdr = csv.reader(inp, delimiter="\t")
     header = False
+    expected_header = (
+        "course_number",
+        "course_title",
+        "timing",
+        "lo1_understanding_eeb",
+        "lo2_research_and_ethics_in_eeb",
+        "lo3_do_indep_res_in_eeb",
+        "lo4_disseminate_research",
+        "foci",
+        "level",
+        "notes",
+        "url",
+    )
     for row in rdr:
         if not header:
-            assert row == [
-                "course_number",
-                "course_title",
-                "timing",
-                "lo1_understanding_eeb",
-                "lo2_research_and_ethics_in_eeb",
-                "lo3_do_indep_res_in_eeb",
-                "lo4_disseminate_research",
-                "foci",
-                "notes",
-                "url",
-            ]
+            for ind, el in enumerate(expected_header):
+                try:
+                    assert row[ind] == el
+                except:
+                    sys.stderr.write(f"Error row={row}\n")
+                    raise
             header = True
             continue
 
@@ -53,7 +60,7 @@ def parse_csv(inp):
         title = row[Row.TITLE].strip()
         topics_pref = "topics in:"
         if title.lower().startswith(topics_pref):
-            title = title[len(topics_pref):]
+            title = title[len(topics_pref) :]
             title = title.strip()
         if number_el.lower() == "event":
             obj = {"type": "event"}
@@ -81,10 +88,12 @@ def main(fp):
     with open(fp, "r", encoding="utf-8") as inp:
         x = parse_csv(inp)
     data = json.dumps(x, sort_keys=True, indent=2)
-    print(f"""////////////////////////////////////////////////////////////////////////
+    print(
+        f"""////////////////////////////////////////////////////////////////////////
 // Data to be read from upload, at some point...
 var all_events = {data}
-""")
+"""
+    )
 
 
 if __name__ == "__main__":

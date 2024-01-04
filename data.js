@@ -3,7 +3,6 @@
 var all_events = [
   {
     "foci": "stats",
-    "notes": "The application of statistical methods to data from various fields of biological research. Special emphasis is placed on practical computational procedures.",
     "outcomes": [
       0,
       2,
@@ -12,7 +11,8 @@ var all_events = [
     ],
     "timing": "1",
     "title": "841 Biometry I",
-    "type": "class"
+    "type": "class",
+    "urls": "The application of statistical methods to data from various fields of biological research. Special emphasis is placed on practical computational procedures."
   },
   {
     "outcomes": [
@@ -37,6 +37,18 @@ var all_events = [
     "type": "class"
   },
   {
+    "notes": "mat",
+    "outcomes": [
+      3,
+      3,
+      3,
+      0
+    ],
+    "timing": "5",
+    "title": "899 Masters Thesis",
+    "type": "class"
+  },
+  {
     "outcomes": [
       1,
       0,
@@ -57,6 +69,7 @@ var all_events = [
     "type": "class"
   },
   {
+    "notes": "phd",
     "outcomes": [
       2,
       2,
@@ -68,6 +81,7 @@ var all_events = [
     "type": "class"
   },
   {
+    "notes": "phd",
     "outcomes": [
       3,
       3,
@@ -101,6 +115,7 @@ var all_events = [
     "type": "event"
   },
   {
+    "notes": "phd",
     "outcomes": [
       2,
       2,
@@ -112,6 +127,43 @@ var all_events = [
     "type": "event"
   },
   {
+    "notes": "mat",
+    "outcomes": [
+      3,
+      3,
+      2,
+      3
+    ],
+    "timing": "THIRD_SEMESTER",
+    "title": "Thesis Writing",
+    "type": "event"
+  },
+  {
+    "notes": "mat",
+    "outcomes": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "timing": "FOURTH_SEMESTER",
+    "title": "Masters Defense",
+    "type": "event"
+  },
+  {
+    "notes": "mant",
+    "outcomes": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "timing": "FOURTH_SEMESTER",
+    "title": "Masters Final Exam",
+    "type": "event"
+  },
+  {
+    "notes": "phd",
     "outcomes": [
       2,
       2,
@@ -123,6 +175,7 @@ var all_events = [
     "type": "event"
   },
   {
+    "notes": "phd",
     "outcomes": [
       2,
       2,
@@ -134,6 +187,7 @@ var all_events = [
     "type": "event"
   },
   {
+    "notes": "phd",
     "outcomes": [
       3,
       3,
@@ -145,6 +199,7 @@ var all_events = [
     "type": "event"
   },
   {
+    "notes": "phd",
     "outcomes": [
       3,
       3,
@@ -156,6 +211,7 @@ var all_events = [
     "type": "event"
   },
   {
+    "notes": "phd",
     "outcomes": [
       3,
       3,
@@ -167,6 +223,7 @@ var all_events = [
     "type": "event"
   },
   {
+    "notes": "phd",
     "outcomes": [
       3,
       3,
@@ -238,7 +295,6 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "EEB genetics, Ecology Friday Lunch series, BIMOL, BigMac or other journal club/discussion group.",
     "outcomes": [
       2,
       2,
@@ -246,7 +302,8 @@ var all_events = [
       2
     ],
     "title": "lead discussion in journal club",
-    "type": "event"
+    "type": "event",
+    "urls": "EEB genetics;  Ecology Friday Lunch series; BIMOL;  BigMac or other journal club/discussion group."
   },
   {
     "outcomes": [
@@ -269,7 +326,27 @@ var all_events = [
     "type": "event"
   },
   {
-    "notes": "The research skills to be fulfilled is chosen by the student and their PAM committee and RAC.",
+    "outcomes": [
+      2,
+      3,
+      0,
+      2
+    ],
+    "title": "apply for a fellowship",
+    "type": "event"
+  },
+  {
+    "notes": "phd",
+    "outcomes": [
+      2,
+      3,
+      2,
+      2
+    ],
+    "title": "write a grant proposal",
+    "type": "event"
+  },
+  {
     "outcomes": [
       0,
       0,
@@ -278,7 +355,8 @@ var all_events = [
     ],
     "timing": "BEFORE_ORALS",
     "title": "complete Research Skill",
-    "type": "event"
+    "type": "event",
+    "urls": "The research skills to be fulfilled is chosen by the student and their PAM committee and RAC."
   },
   {
     "foci": "mechanisms",
@@ -288,7 +366,7 @@ var all_events = [
       0,
       0
     ],
-    "title": "600 Introd Biochemistry, Lectures",
+    "title": "600 Introd Biochemistry",
     "type": "class"
   },
   {
@@ -325,7 +403,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "biodiversity,ecology",
+    "foci": "biodiversity;ecology",
     "outcomes": [
       2,
       0,
@@ -358,7 +436,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "ecology,mechanisms",
+    "foci": "ecology;mechanisms",
     "outcomes": [
       2,
       0,
@@ -402,7 +480,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "biodiversity,ecology",
+    "foci": "biodiversity;ecology",
     "outcomes": [
       2,
       0,
@@ -413,7 +491,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "biodiversity,ecology",
+    "foci": "biodiversity;ecology",
     "outcomes": [
       2,
       0,
@@ -435,7 +513,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "ecology,mechanisms",
+    "foci": "ecology;mechanisms",
     "outcomes": [
       2,
       0,
@@ -479,7 +557,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "ecology,stats",
+    "foci": "ecology;stats",
     "outcomes": [
       2,
       2,
@@ -490,7 +568,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "computing,stats",
+    "foci": "computing;stats",
     "outcomes": [
       0,
       2,
@@ -523,7 +601,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "ecology,mechanisms",
+    "foci": "ecology;mechanisms",
     "outcomes": [
       2,
       0,
@@ -599,7 +677,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "mechanisms,stats",
+    "foci": "mechanisms;stats",
     "outcomes": [
       2,
       2,
@@ -632,7 +710,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "computing,stats",
+    "foci": "computing;stats",
     "outcomes": [
       2,
       2,
@@ -643,7 +721,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "computing,stats",
+    "foci": "computing;stats",
     "outcomes": [
       0,
       2,
@@ -783,7 +861,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "biodiversity,mechanisms",
+    "foci": "mechanismslbiodiversity",
     "outcomes": [
       2,
       0,
@@ -848,7 +926,7 @@ var all_events = [
     "type": "class"
   },
   {
-    "foci": "biodiversity,mechanisms",
+    "foci": "mechanismslbiodiversity",
     "outcomes": [
       2,
       0,
