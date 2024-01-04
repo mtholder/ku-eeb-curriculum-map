@@ -140,59 +140,131 @@ var outcome_col = [[ "#FFF", "#FAA", "#F77", "#F00", ],
 </div>
 
 <script>
-////////////////////////////////////////////////////////////////////////
-// HARD-CODED CONSTANTS
-var CANVAS_WIDTH = 1500;
-var CANVAS_HEIGHT = 1520;
-
-var TIMELINE_X = 5;
-var TIMELINE_Y = 5;
-var TL_TEXT_PUSH_Y = 10;
-var TIMELINE_WIDTH = 100;
-var TIMELINE_TEXT_WIDTH = TIMELINE_WIDTH - 10;
-var MID_TIMELINE_X = TIMELINE_X  + (TIMELINE_WIDTH/2);
-
-var EEB_X = TIMELINE_X + TIMELINE_WIDTH + 40;
-var EEB_Y = TIMELINE_Y;
-var EEB_TEXT_PUSH_Y = TL_TEXT_PUSH_Y;
-var EEB_WIDTH = 180;
-var EEB_TEXT_WIDTH = EEB_WIDTH - 10;
-var MID_EEB_X = EEB_X  + (EEB_WIDTH/2);
-
-var CLASS_WIDTH = 2* EEB_WIDTH;
-var CLASS_X = EEB_X + (EEB_WIDTH + CLASS_WIDTH)/2 ;
-var CLASS_Y = EEB_Y;
-var CLASS_TEXT_PUSH_Y = EEB_TEXT_PUSH_Y + 4;
-var CLASS_TEXT_WIDTH = CLASS_WIDTH - 10;
-var MID_CLASS_X = CLASS_X  + (CLASS_WIDTH/2);
-
-var FIRST_MONTH_Y = TIMELINE_Y + 20;
-var FIRST_SEMESTER_Y = FIRST_MONTH_Y + 20;
-var SEM_GAP_Y = 50;
-var FIRST_FALL_Y = FIRST_SEMESTER_Y;
-var FIRST_SPRING_Y = FIRST_FALL_Y + SEM_GAP_Y;
-var THIRD_SEM_Y = FIRST_SPRING_Y + SEM_GAP_Y;
-var START_THIRD_SEMESTER_Y = THIRD_SEM_Y - 40;
-var BEFORE_ORALS_Y = THIRD_SEM_Y - 20;
-var CANDIDACY_Y = THIRD_SEM_Y + 15;
-var FOURTH_SEM_Y = THIRD_SEM_Y + SEM_GAP_Y;
-var EARLY_FOURTH_SEMESTER_Y = FOURTH_SEM_Y - 20;
-var AFTER_CANDIDACY_Y = FOURTH_SEM_Y + 25;
-var THIRD_YEAR_Y = FOURTH_SEM_Y + SEM_GAP_Y;
-var FOURTH_YEAR_Y = THIRD_YEAR_Y + 2*SEM_GAP_Y;
-var EARLY_FIFTH_SEMESTER_Y = THIRD_YEAR_Y - 20;
-var DEFENSE_Y = 500;
-var BEFORE_DEFENSE_Y = DEFENSE_Y - 20;
-var UNTIMED_EEB_Y = DEFENSE_Y + 20;
-var UNTIMED_CLASS_Y = UNTIMED_EEB_Y + 20;
+var show_level = "mat";
+</script>
+<script>
+////////////////////////////////////////////////////////////////////////////////
+// declaration of globals for size-dependent variables set in set_constants
+var CANVAS_WIDTH;
+var CANVAS_HEIGHT;
+var TIMELINE_X;
+var TIMELINE_Y;
+var TL_TEXT_PUSH_Y;
+var TIMELINE_WIDTH;
+var TIMELINE_TEXT_WIDTH;
+var MID_TIMELINE_X;
+var EEB_X;
+var EEB_Y;
+var EEB_TEXT_PUSH_Y;
+var EEB_WIDTH;
+var EEB_TEXT_WIDTH;
+var MID_EEB_X;
+var CLASS_WIDTH;
+var CLASS_X;
+var CLASS_Y;
+var CLASS_TEXT_PUSH_Y;
+var CLASS_TEXT_WIDTH;
+var MID_CLASS_X;
+var FIRST_MONTH_Y;
+var FIRST_SEMESTER_Y;
+var SEM_GAP_Y;
+var FIRST_FALL_Y;
+var FIRST_SPRING_Y;
+var THIRD_SEM_Y;
+var START_THIRD_SEMESTER_Y;
+var BEFORE_ORALS_Y;
+var CANDIDACY_Y;
+var FOURTH_SEM_Y;
+var EARLY_FOURTH_SEMESTER_Y;
+var AFTER_CANDIDACY_Y;
+var THIRD_YEAR_Y;
+var FOURTH_YEAR_Y;
+var EARLY_FIFTH_SEMESTER_Y;
+var DEFENSE_Y;
+var BEFORE_DEFENSE_Y;
+var UNTIMED_EEB_Y;
+var UNTIMED_CLASS_Y;
+////////////////////////////////////////////////////////////////////////////////
+// declaration of other globals
+var outcome_col = [["#FFF", "#FAA", "#F77", "#F00", ],
+                   ["#FFF", "#FFB", "#FF7", "#FF0", ],
+                   ["#FFF", "#BBF", "#77F", "#00F", ],
+                   ["#FFF", "#BFF", "#8DD", "#0BB", ],
+                  ];
 var lo_visible = true;
-///////////////////////////////////////////////////////////////////////////
-
+var timeline_y = [FIRST_MONTH_Y, FIRST_FALL_Y, FIRST_SPRING_Y, THIRD_SEM_Y, FOURTH_SEM_Y];
 var class_by_sem = [];
 var untimed_event_list = [];
 var untimed_class_list = [];
 var classFill = "#DDD";
 var gID = 1;
+var non_class_events = [];
+var classes = [];
+var timeline_objs = [{
+    "time_offset": 0,
+    "text": "1st month"
+  }, {
+    "time_offset": 1,
+    "text": "1st Fall"
+  }, {
+    "time_offset": 2,
+    "text": "1st Spring"
+  }, {
+    "time_offset": 3,
+    "text": "3rd Semester"
+  },{
+    "time_offset": 4,
+    "text": "4th Semester"
+  }
+];
+var canvas_root;
+///////////////////////////////////////////////////////////////////////////////
+
+var set_constants = function(lev) {
+  CANVAS_WIDTH = 1500;
+  CANVAS_HEIGHT = 1520;
+
+  TIMELINE_X = 5;
+  TIMELINE_Y = 5;
+  TL_TEXT_PUSH_Y = 10;
+  TIMELINE_WIDTH = 100;
+  TIMELINE_TEXT_WIDTH = TIMELINE_WIDTH - 10;
+  MID_TIMELINE_X = TIMELINE_X  + (TIMELINE_WIDTH/2);
+
+  EEB_X = TIMELINE_X + TIMELINE_WIDTH + 40;
+  EEB_Y = TIMELINE_Y;
+  EEB_TEXT_PUSH_Y = TL_TEXT_PUSH_Y;
+  EEB_WIDTH = 180;
+  EEB_TEXT_WIDTH = EEB_WIDTH - 10;
+  MID_EEB_X = EEB_X  + (EEB_WIDTH/2);
+
+  CLASS_WIDTH = 2* EEB_WIDTH;
+  CLASS_X = EEB_X + (EEB_WIDTH + CLASS_WIDTH)/2 ;
+  CLASS_Y = EEB_Y;
+  CLASS_TEXT_PUSH_Y = EEB_TEXT_PUSH_Y + 4;
+  CLASS_TEXT_WIDTH = CLASS_WIDTH - 10;
+  MID_CLASS_X = CLASS_X  + (CLASS_WIDTH/2);
+
+  FIRST_MONTH_Y = TIMELINE_Y + 20;
+  FIRST_SEMESTER_Y = FIRST_MONTH_Y + 20;
+  SEM_GAP_Y = 50;
+  FIRST_FALL_Y = FIRST_SEMESTER_Y;
+  FIRST_SPRING_Y = FIRST_FALL_Y + SEM_GAP_Y;
+  THIRD_SEM_Y = FIRST_SPRING_Y + SEM_GAP_Y;
+  START_THIRD_SEMESTER_Y = THIRD_SEM_Y - 40;
+  BEFORE_ORALS_Y = THIRD_SEM_Y - 20;
+  CANDIDACY_Y = THIRD_SEM_Y + 15;
+  FOURTH_SEM_Y = THIRD_SEM_Y + SEM_GAP_Y;
+  EARLY_FOURTH_SEMESTER_Y = FOURTH_SEM_Y - 20;
+  AFTER_CANDIDACY_Y = FOURTH_SEM_Y + 25;
+  THIRD_YEAR_Y = FOURTH_SEM_Y + SEM_GAP_Y;
+  FOURTH_YEAR_Y = THIRD_YEAR_Y + 2*SEM_GAP_Y;
+  EARLY_FIFTH_SEMESTER_Y = THIRD_YEAR_Y - 20;
+  DEFENSE_Y = 500;
+  BEFORE_DEFENSE_Y = DEFENSE_Y - 20;
+  UNTIMED_EEB_Y = DEFENSE_Y + 20;
+  UNTIMED_CLASS_Y = UNTIMED_EEB_Y + 20;
+}
 
 function isInteger(value) {
   return /^\d+$/.test(value);
@@ -232,8 +304,7 @@ var parse_timing = function(ts) {
   }
   throw new Error("Key " + ts + " not recognized as a time.");
 }
-var non_class_events = [];
-var classes = [];
+
 var do_parse_all_data = function(event_list) {
   non_class_events.length = 0;
   classes.length = 0;
@@ -251,37 +322,6 @@ var do_parse_all_data = function(event_list) {
     }
   }
 };
-
-var timeline_y = [FIRST_MONTH_Y, FIRST_FALL_Y, FIRST_SPRING_Y, THIRD_SEM_Y, FOURTH_SEM_Y];
-var timeline_objs = [{
-    "time_offset": 0,
-    "text": "1st month"
-  }, {
-    "time_offset": 1,
-    "text": "1st Fall"
-  }, {
-    "time_offset": 2,
-    "text": "1st Spring"
-  }, {
-    "time_offset": 3,
-    "text": "3rd Semester"
-  },{
-    "time_offset": 4,
-    "text": "4th Semester"
-  }
-];
-
-
-
-
-var canvas_root = d3.select('#canvas').append('svg')
-    .attr('width', CANVAS_WIDTH)
-    .attr('height', CANVAS_HEIGHT)
-    .style('background', 'white');
-
-// var g_el = canvas_root.selectAll('g')
-//   .enter()
-//   .append('g');
 
 var add_timeline_text = function(y, text_val) {
   canvas_root.append('text')
@@ -341,12 +381,6 @@ var add_eeb_text = function(group_el, y, text_val, lg_vec) {
       .attr("text-anchor", "middle");
 };
 
-// If you change this, change the key, too!
-var outcome_col = [["#FFF", "#FAA", "#F77", "#F00", ],
-                   ["#FFF", "#FFB", "#FF7", "#FF0", ],
-                   ["#FFF", "#BBF", "#77F", "#00F", ],
-                   ["#FFF", "#BFF", "#8DD", "#0BB", ],
-                  ];
 var add_outcomes_boxes = function(group_el, o, x, y, height, full_width) {
   var outcomes = o.outcomes;
   var ov;
@@ -419,18 +453,6 @@ var display_class_obj = function(group_el, o, x, y, width, height) {
   add_outcomes_boxes(group_el, o, x + 2, y + half_height + 2, half_height - 4, width -4);
 };
 
-// var dragcontainer = d3.drag()
-//   .on("drag", function(d, i) {
-//     var el = d3.select(this);
-//     console.log("el id = " + el.attr("id"))
-//     // for (des of el.descendants()) {
-//     //   des.translate(d3.event.x, d3.event.y);
-//     // }
-//     var children = el.selectChildren();
-//     children.attr("transform", "translate(" + d.dx + ", " + d.dy + ")");
-//     //d3.select(this).attr("transform", "translate(" + (d.x = d3.event.x) + "," + (d.y = d3.event.y) + ")");
-//   });
-
 var dragcontainer = d3.drag()
   .on("drag", function(event, d, i) {
     d3.select(this).attr("transform", "translate(" + (d.x = event.x) + "," + (d.y = event.y) + ")");
@@ -470,7 +492,6 @@ var do_draw_eeb_events = function() {
     .attr("fill", "grey")
     .attr("text-anchor", "middle")
     .text("Non-class events");
-
   var o;
   for (o of non_class_events) {
     if (o.timing !== undefined) {
@@ -531,7 +552,28 @@ var do_draw_classes = function() {
   }
 }
 
+
+var fill_all_events = function(lev) {
+  var all_events = []
+  if (lev == "mant") {
+    all_events = in_ma_nonthesis.concat(in_all_levels);
+  } else if (lev == "mat") {
+    all_events = in_ma_thesis.concat(in_all_levels);
+  } else if (lev == "phd") {
+    all_events = in_phd.concat(in_all_levels);
+  } else {
+    console.log("No events shown because show_level is set to " + lev);
+  }
+  return all_events;
+}
+
 $(document).ready(function() {
+  set_constants(show_level);
+  canvas_root = d3.select('#canvas').append('svg')
+    .attr('width', CANVAS_WIDTH)
+    .attr('height', CANVAS_HEIGHT)
+    .style('background', 'white');
+  var all_events = fill_all_events(show_level);
   do_parse_all_data(all_events);
   do_draw_timeline();
   do_draw_eeb_events();
