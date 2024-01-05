@@ -337,7 +337,8 @@ var add_timeline_obj = function(o) {
   add_timeline_text(y_var, o.text);
 };
 
-var do_draw_timeline = function() {
+var do_draw_timeline = function(lev) {
+  lev = "phd";
   canvas_root.append("rect")
     .attr('x', TIMELINE_X)
     .attr('y', TIMELINE_Y)
@@ -345,27 +346,29 @@ var do_draw_timeline = function() {
     .attr('width', TIMELINE_WIDTH)
     .attr('fill', "white")
     .attr('stroke', "black");
-  canvas_root.append('text')
-    .attr("x", MID_TIMELINE_X)
-    .attr("y", TIMELINE_Y + 15)
-    .attr("font-size", "10pt")
-    .attr("fill", "grey")
-    .attr("text-anchor", "middle")
-    .text("pre-candidacy");
-  canvas_root.append("rect")
-    .attr('x', TIMELINE_X)
-    .attr('y', CANDIDACY_Y)
-    .attr('height', DEFENSE_Y - CANDIDACY_Y)
-    .attr('width', TIMELINE_WIDTH)
-    .attr('fill', "white")
-    .attr('stroke', "black");
-  canvas_root.append('text')
-    .attr("x", MID_TIMELINE_X)
-    .attr( "y", DEFENSE_Y - 15)
-    .attr("font-size", "10pt")
-    .attr( "fill", "grey")
-    .attr("text-anchor", "middle")
-    .text("candidacy");
+  if (lev == "phd") {
+    canvas_root.append('text')
+      .attr("x", MID_TIMELINE_X)
+      .attr("y", TIMELINE_Y + 15)
+      .attr("font-size", "10pt")
+      .attr("fill", "grey")
+      .attr("text-anchor", "middle")
+      .text("pre-candidacy");
+    canvas_root.append("rect")
+      .attr('x', TIMELINE_X)
+      .attr('y', CANDIDACY_Y)
+      .attr('height', DEFENSE_Y - CANDIDACY_Y)
+      .attr('width', TIMELINE_WIDTH)
+      .attr('fill', "white")
+      .attr('stroke', "black");
+    canvas_root.append('text')
+      .attr("x", MID_TIMELINE_X)
+      .attr( "y", DEFENSE_Y - 15)
+      .attr("font-size", "10pt")
+      .attr( "fill", "grey")
+      .attr("text-anchor", "middle")
+      .text("candidacy");
+  }
   var o;
   for (o of timeline_objs) {
     add_timeline_obj(o);
@@ -567,17 +570,22 @@ var fill_all_events = function(lev) {
   return all_events;
 }
 
-$(document).ready(function() {
-  set_constants(show_level);
+var main_func = function(lev) {
+  show_level = lev;
+  set_constants(lev);
   canvas_root = d3.select('#canvas').append('svg')
     .attr('width', CANVAS_WIDTH)
     .attr('height', CANVAS_HEIGHT)
     .style('background', 'white');
-  var all_events = fill_all_events(show_level);
+  var all_events = fill_all_events(lev);
   do_parse_all_data(all_events);
-  do_draw_timeline();
+  do_draw_timeline(lev);
   do_draw_eeb_events();
   do_draw_classes();
+}
+
+$(document).ready(function() {
+  main_func(show_level);
 });
 </script>
 
