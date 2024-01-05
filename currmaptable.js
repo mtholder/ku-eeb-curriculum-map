@@ -79,7 +79,11 @@ var timeline_objs = [{
 ///////////////////////////////////////////////////////////////////////////
 var set_constants = function(lev) {
   CANVAS_WIDTH = 1500;
-  CANVAS_HEIGHT = 1520;
+  if (lev == "phd") {
+    CANVAS_HEIGHT = 1520;
+  } else {
+    CANVAS_HEIGHT = 1520;
+  }
 
   TIMELINE_X = 5;
   TIMELINE_Y = 5;
@@ -113,13 +117,21 @@ var set_constants = function(lev) {
   CANDIDACY_Y = THIRD_SEM_Y + 15;
   FOURTH_SEM_Y = THIRD_SEM_Y + SEM_GAP_Y;
   EARLY_FOURTH_SEMESTER_Y = FOURTH_SEM_Y - 20;
-  AFTER_CANDIDACY_Y = FOURTH_SEM_Y + 25;
   THIRD_YEAR_Y = FOURTH_SEM_Y + SEM_GAP_Y;
-  FOURTH_YEAR_Y = THIRD_YEAR_Y + 2*SEM_GAP_Y;
-  EARLY_FIFTH_SEMESTER_Y = THIRD_YEAR_Y - 20;
-  DEFENSE_Y = 500;
+  if (lev == "phd") {
+    AFTER_CANDIDACY_Y = FOURTH_SEM_Y + 25;
+    FOURTH_YEAR_Y = THIRD_YEAR_Y + 2*SEM_GAP_Y;
+    EARLY_FIFTH_SEMESTER_Y = THIRD_YEAR_Y - 20;
+    DEFENSE_Y = 500;
+  } else {
+    DEFENSE_Y = THIRD_YEAR_Y;
+  }
   BEFORE_DEFENSE_Y = DEFENSE_Y - 20;
-  UNTIMED_EEB_Y = DEFENSE_Y + 20;
+  if (lev == "phd") {
+    UNTIMED_EEB_Y = DEFENSE_Y + 20;
+  } else {
+    UNTIMED_EEB_Y = DEFENSE_Y + 10;
+  }
   UNTIMED_CLASS_Y = UNTIMED_EEB_Y + 20;
   timeline_y = [FIRST_MONTH_Y, FIRST_FALL_Y, FIRST_SPRING_Y, THIRD_SEM_Y, FOURTH_SEM_Y];
 }
