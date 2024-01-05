@@ -52,7 +52,6 @@ var outcome_col = [[ "#FFF", "#FAA", "#F77", "#F00", ],
                    ["#FFF", "#BFF", "#8DD", "#0BB", ],
                   ]; -->
 <div id="accordion" class="ui-accordion-header">
-<!--button class="accordion" onclick="toggleLO()">Hide EEB Expected Learning Outcomes</button!-->
 <h2>EEB Expected Learning Outcomes</h2>
 
 <div id="locontent">
@@ -184,14 +183,43 @@ var DEFENSE_Y = 500;
 var BEFORE_DEFENSE_Y = DEFENSE_Y - 20;
 var UNTIMED_EEB_Y = DEFENSE_Y + 20;
 var UNTIMED_CLASS_Y = UNTIMED_EEB_Y + 20;
-var lo_visible = true;
+var timeline_y = [FIRST_MONTH_Y, FIRST_FALL_Y, FIRST_SPRING_Y, THIRD_SEM_Y, FOURTH_SEM_Y];
+
 ///////////////////////////////////////////////////////////////////////////
+var lo_visible = true;
 var canvas_root;
+
 var class_by_sem = [];
 var untimed_event_list = [];
 var untimed_class_list = [];
+// If you change this, change the key, too!
+var outcome_col = [["#FFF", "#FAA", "#F77", "#F00", ],
+                   ["#FFF", "#FFB", "#FF7", "#FF0", ],
+                   ["#FFF", "#BBF", "#77F", "#00F", ],
+                   ["#FFF", "#BFF", "#8DD", "#0BB", ],
+                  ];
 var classFill = "#DDD";
 var gID = 1;
+var non_class_events = [];
+var classes = [];
+var timeline_objs = [{
+    "time_offset": 0,
+    "text": "1st month"
+  }, {
+    "time_offset": 1,
+    "text": "1st Fall"
+  }, {
+    "time_offset": 2,
+    "text": "1st Spring"
+  }, {
+    "time_offset": 3,
+    "text": "3rd Semester"
+  },{
+    "time_offset": 4,
+    "text": "4th Semester"
+  }
+];
+
 ///////////////////////////////////////////////////////////////////////////
 var set_constants = function(lev) {
   CANVAS_WIDTH = 1500;
@@ -237,19 +265,11 @@ var set_constants = function(lev) {
   BEFORE_DEFENSE_Y = DEFENSE_Y - 20;
   UNTIMED_EEB_Y = DEFENSE_Y + 20;
   UNTIMED_CLASS_Y = UNTIMED_EEB_Y + 20;
-}
-function isInteger(value) {
-  return /^\d+$/.test(value);
+  timeline_y = [FIRST_MONTH_Y, FIRST_FALL_Y, FIRST_SPRING_Y, THIRD_SEM_Y, FOURTH_SEM_Y];
 }
 
-var toggleLO = function() {
-  var vval = lo_visible ? "hidden" : "visible";
-  lo_visible = ! lo_visible;
-  // d3.select("#locontent")
-  //   .transition()
-  //   .duration(900)
-  //   .style("visibility", vval);
-  collapse(d3.select("#locontent"));
+function isInteger(value) {
+  return /^\d+$/.test(value);
 }
 
 var parse_timing = function(ts) {
@@ -276,8 +296,7 @@ var parse_timing = function(ts) {
   }
   throw new Error("Key " + ts + " not recognized as a time.");
 }
-var non_class_events = [];
-var classes = [];
+
 var do_parse_all_data = function(event_list) {
   non_class_events.length = 0;
   classes.length = 0;
@@ -295,25 +314,6 @@ var do_parse_all_data = function(event_list) {
     }
   }
 };
-
-var timeline_y = [FIRST_MONTH_Y, FIRST_FALL_Y, FIRST_SPRING_Y, THIRD_SEM_Y, FOURTH_SEM_Y];
-var timeline_objs = [{
-    "time_offset": 0,
-    "text": "1st month"
-  }, {
-    "time_offset": 1,
-    "text": "1st Fall"
-  }, {
-    "time_offset": 2,
-    "text": "1st Spring"
-  }, {
-    "time_offset": 3,
-    "text": "3rd Semester"
-  },{
-    "time_offset": 4,
-    "text": "4th Semester"
-  }
-];
 
 var add_timeline_text = function(y, text_val) {
   canvas_root.append('text')
@@ -373,12 +373,7 @@ var add_eeb_text = function(group_el, y, text_val, lg_vec) {
       .attr("text-anchor", "middle");
 };
 
-// If you change this, change the key, too!
-var outcome_col = [["#FFF", "#FAA", "#F77", "#F00", ],
-                   ["#FFF", "#FFB", "#FF7", "#FF0", ],
-                   ["#FFF", "#BBF", "#77F", "#00F", ],
-                   ["#FFF", "#BFF", "#8DD", "#0BB", ],
-                  ];
+
 var add_outcomes_boxes = function(group_el, o, x, y, height, full_width) {
   var outcomes = o.outcomes;
   var ov;
@@ -451,17 +446,6 @@ var display_class_obj = function(group_el, o, x, y, width, height) {
   add_outcomes_boxes(group_el, o, x + 2, y + half_height + 2, half_height - 4, width -4);
 };
 
-// var dragcontainer = d3.drag()
-//   .on("drag", function(d, i) {
-//     var el = d3.select(this);
-//     console.log("el id = " + el.attr("id"))
-//     // for (des of el.descendants()) {
-//     //   des.translate(d3.event.x, d3.event.y);
-//     // }
-//     var children = el.selectChildren();
-//     children.attr("transform", "translate(" + d.dx + ", " + d.dy + ")");
-//     //d3.select(this).attr("transform", "translate(" + (d.x = d3.event.x) + "," + (d.y = d3.event.y) + ")");
-//   });
 
 var dragcontainer = d3.drag()
   .on("drag", function(event, d, i) {
