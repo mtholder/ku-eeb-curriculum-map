@@ -56,6 +56,7 @@ var outcome_col = [["#FFF", "#FAA", "#F77", "#F00", ],
                   ];
 var classFill = "#DDD";
 var gID = 1;
+var ugID = 1;
 var non_class_events = [];
 var classes = [];
 var timeline_objs = [{
@@ -251,6 +252,10 @@ var add_eeb_text = function(group_el, y, text_val, lg_vec) {
       .attr("text-anchor", "middle");
 };
 
+var dragcontainer = d3.drag()
+  .on("drag", function(event, d, i) {
+    d3.select(this).attr("transform", "translate(" + (d.x = event.x) + "," + (d.y = event.y) + ")");
+  });
 
 var add_outcomes_boxes = function(group_el, o, x, y, height, full_width) {
   var outcomes = o.outcomes;
@@ -298,8 +303,12 @@ var add_untimed_eeb_obj = function(o) {
   UNTIMED_CLASS_Y = y + SEM_GAP_Y;
   var width = EEB_WIDTH;
   var height = (SEM_GAP_Y - 10)/2;
-
-  var group_el = canvas_root.append("g");
+  var group_id = "groupeeb" + ugID;
+  ugID += 1;
+  var group_el = canvas_root.append("g")
+    .attr("id", group_id)
+    .attr("x", 0)
+    .attr("y", 0);
   display_eeb_obj(group_el, o, x + 1, y - 2, width, height);
   //add_eeb_text(y, o.title, o.outcomes);
   //console.log("x=" + x + ", y=" + y + ", text=" +o.title + "\n");
@@ -309,7 +318,7 @@ var add_untimed_eeb_obj = function(o) {
     .attr("class", "eebevent")
     .text(o.title).attr("text-anchor", "middle");
   untimed_event_list[untimed_event_list.length] = o;
-  
+  d3.select("#" + group_id).datum({"x": 0, "y": 0}).call(dragcontainer);
 };
 
 var display_class_obj = function(group_el, o, x, y, width, height) {
@@ -323,12 +332,6 @@ var display_class_obj = function(group_el, o, x, y, width, height) {
   var half_height = height/2;
   add_outcomes_boxes(group_el, o, x + 2, y + half_height + 2, half_height - 4, width -4);
 };
-
-
-var dragcontainer = d3.drag()
-  .on("drag", function(event, d, i) {
-    d3.select(this).attr("transform", "translate(" + (d.x = event.x) + "," + (d.y = event.y) + ")");
-  });
 
 var add_untimed_class_obj = function(o) {
   var x = TIMELINE_X + CLASS_WIDTH*(untimed_class_list.length % 4);
