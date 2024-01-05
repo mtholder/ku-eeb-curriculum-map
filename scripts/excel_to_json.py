@@ -54,7 +54,7 @@ def parse_csv(inp):
             header = True
             continue
 
-        lo_vec = [int(row[idx]) for idx in _lo_indices]
+        lo_vec = [float(row[idx]) for idx in _lo_indices]
         foci_list = row[Row.FOCI].split(",")
         foci_list = [i.strip() for i in foci_list]
         foci_list.sort()

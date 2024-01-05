@@ -5,10 +5,10 @@ var in_all_levels = [
     "foci": "stats",
     "notes": "The application of statistical methods to data from various fields of biological research. Special emphasis is placed on practical computational procedures.",
     "outcomes": [
-      0,
-      2,
-      0,
-      0
+      2.0,
+      2.0,
+      0.5,
+      2.5
     ],
     "timing": "1",
     "title": "841 Biometry I",
@@ -16,10 +16,10 @@ var in_all_levels = [
   },
   {
     "outcomes": [
-      1,
-      0,
-      0,
-      0
+      2.0,
+      2.17,
+      1.33,
+      1.83
     ],
     "timing": "2",
     "title": "801 Core Topics in Current EEB Res",
@@ -27,10 +27,10 @@ var in_all_levels = [
   },
   {
     "outcomes": [
-      0,
-      2,
-      0,
-      0
+      1.0,
+      3.0,
+      1.0,
+      1.5
     ],
     "timing": "1",
     "title": "805 Scintfc Intgrty Ecol&Evol Biol",
@@ -38,30 +38,30 @@ var in_all_levels = [
   },
   {
     "outcomes": [
-      1,
-      0,
-      1,
-      0
+      1.0,
+      0.0,
+      1.0,
+      0.0
     ],
     "title": "985 Advanced Study",
     "type": "class"
   },
   {
     "outcomes": [
-      2,
-      0,
-      2,
-      0
+      2.0,
+      0.0,
+      2.0,
+      0.0
     ],
     "title": "985 Advanced Study",
     "type": "class"
   },
   {
     "outcomes": [
-      0,
-      0,
-      0,
-      0
+      1.28,
+      1.06,
+      1.0,
+      0.94
     ],
     "timing": "FIRST_MONTH",
     "title": "Prelim. Advising Meeting",
@@ -69,10 +69,10 @@ var in_all_levels = [
   },
   {
     "outcomes": [
-      0,
-      0,
-      1,
-      0
+      2.0,
+      1.92,
+      2.08,
+      1.92
     ],
     "timing": "START_THIRD_SEMESTER",
     "title": "form RAC",
@@ -80,101 +80,101 @@ var in_all_levels = [
   },
   {
     "outcomes": [
-      2,
-      3,
-      2,
-      2
+      2.0,
+      3.0,
+      2.0,
+      2.0
     ],
     "title": "poster at regional mtg",
     "type": "event"
   },
   {
     "outcomes": [
-      2,
-      3,
-      2,
-      2
+      2.0,
+      3.0,
+      2.0,
+      2.0
     ],
     "title": "poster at national mtg",
     "type": "event"
   },
   {
     "outcomes": [
-      2,
-      3,
-      2,
-      2
+      2.0,
+      3.0,
+      2.0,
+      2.0
     ],
     "title": "poster at international mtg",
     "type": "event"
   },
   {
     "outcomes": [
-      2,
-      3,
-      2,
-      2
+      2.0,
+      3.0,
+      2.0,
+      2.0
     ],
     "title": "present talk at regional mtg",
     "type": "event"
   },
   {
     "outcomes": [
-      2,
-      3,
-      2,
-      2
+      2.0,
+      3.0,
+      2.0,
+      2.0
     ],
     "title": "present talk at national mtg",
     "type": "event"
   },
   {
     "outcomes": [
-      2,
-      3,
-      2,
-      2
+      2.0,
+      3.0,
+      2.0,
+      2.0
     ],
     "title": "present talk at international mtg",
     "type": "event"
   },
   {
-    "notes": "EEB genetics;  Ecology Friday Lunch series; BIMOL;  BigMac or other journal club/discussion group.",
+    "notes": "EEB genetics; Ecology Friday Lunch series; BIMOL; BigMac or other journal club/discussion group.",
     "outcomes": [
-      2,
-      2,
-      0,
-      2
+      2.0,
+      2.0,
+      0.0,
+      2.0
     ],
     "title": "lead discussion in journal club",
     "type": "event"
   },
   {
     "outcomes": [
-      2,
-      3,
-      2,
-      2
+      2.0,
+      3.0,
+      2.0,
+      2.0
     ],
     "title": "poster at EEB",
     "type": "event"
   },
   {
     "outcomes": [
-      2,
-      3,
-      2,
-      2
+      2.0,
+      3.0,
+      2.0,
+      2.0
     ],
     "title": "present talk to EEB",
     "type": "event"
   },
   {
     "outcomes": [
-      2,
-      3,
-      0,
-      2
+      2.0,
+      3.0,
+      0.0,
+      2.0
     ],
     "title": "apply for a fellowship",
     "type": "event"
@@ -182,10 +182,10 @@ var in_all_levels = [
   {
     "foci": "mechanisms",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "600 Introd Biochemistry",
     "type": "class"
@@ -193,10 +193,10 @@ var in_all_levels = [
   {
     "foci": "ecology",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "602 Plant Ecology",
     "type": "class"
@@ -204,10 +204,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "622 Paleontology",
     "type": "class"
@@ -215,10 +215,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "623 Paleontology Laboratory",
     "type": "class"
@@ -226,10 +226,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity;ecology",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "630 Conservatn and Wildlife Biolgy",
     "type": "class"
@@ -237,10 +237,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "640 Biolgy&Evoltn of Fossil Plants",
     "type": "class"
@@ -248,10 +248,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "648 Systematics and Macroevolution",
     "type": "class"
@@ -259,10 +259,10 @@ var in_all_levels = [
   {
     "foci": "ecology;mechanisms",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "668 Evolutionary Ecology",
     "type": "class"
@@ -270,10 +270,10 @@ var in_all_levels = [
   {
     "foci": "mechanisms",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "672 Gene Expression",
     "type": "class"
@@ -281,10 +281,10 @@ var in_all_levels = [
   {
     "foci": "mechanisms",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "680 Genomics",
     "type": "class"
@@ -292,10 +292,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 African Biodiversity",
     "type": "class"
@@ -303,10 +303,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity;ecology",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Biodiversity-Ecosystem Functio",
     "type": "class"
@@ -314,10 +314,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity;ecology",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Biology of Dispersal",
     "type": "class"
@@ -325,10 +325,10 @@ var in_all_levels = [
   {
     "foci": "computing",
     "outcomes": [
-      0,
-      0,
-      2,
-      0
+      0.0,
+      0.0,
+      2.0,
+      0.0
     ],
     "title": "701 Computer Science for Biology",
     "type": "class"
@@ -336,10 +336,10 @@ var in_all_levels = [
   {
     "foci": "ecology;mechanisms",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Ecol&Evol Host Microbiome Intr",
     "type": "class"
@@ -347,10 +347,10 @@ var in_all_levels = [
   {
     "foci": "ecology",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Ecology of Infectious Diseases",
     "type": "class"
@@ -358,10 +358,10 @@ var in_all_levels = [
   {
     "foci": "ecology",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Field Botany",
     "type": "class"
@@ -369,10 +369,10 @@ var in_all_levels = [
   {
     "foci": "mechanisms",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Genome Biology",
     "type": "class"
@@ -380,10 +380,10 @@ var in_all_levels = [
   {
     "foci": "ecology;stats",
     "outcomes": [
-      2,
-      2,
-      0,
-      0
+      2.0,
+      2.0,
+      0.0,
+      0.0
     ],
     "title": "701 Intro Mathematical Epidemiol",
     "type": "class"
@@ -391,10 +391,10 @@ var in_all_levels = [
   {
     "foci": "computing;stats",
     "outcomes": [
-      0,
-      2,
-      2,
-      0
+      0.0,
+      2.0,
+      2.0,
+      0.0
     ],
     "title": "701 Likelihood Methods in Biology",
     "type": "class"
@@ -402,10 +402,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Lizards",
     "type": "class"
@@ -413,10 +413,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Measuring Biodiversity",
     "type": "class"
@@ -424,10 +424,10 @@ var in_all_levels = [
   {
     "foci": "ecology;mechanisms",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Microbiomes: Data to Insight",
     "type": "class"
@@ -435,10 +435,10 @@ var in_all_levels = [
   {
     "foci": "ecology",
     "outcomes": [
-      2,
-      2,
-      0,
-      0
+      2.0,
+      2.0,
+      0.0,
+      0.0
     ],
     "title": "701 Native&Western Views of Nature",
     "type": "class"
@@ -446,10 +446,10 @@ var in_all_levels = [
   {
     "foci": "ecology",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Natural Resource Management",
     "type": "class"
@@ -457,20 +457,20 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Neotropical Biogeo&Diversifctn",
     "type": "class"
   },
   {
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Population Biology",
     "type": "class"
@@ -478,10 +478,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "701 Principles of Insect Morpholgy",
     "type": "class"
@@ -489,10 +489,10 @@ var in_all_levels = [
   {
     "foci": "computing",
     "outcomes": [
-      0,
-      2,
-      2,
-      0
+      0.5,
+      0.5,
+      2.0,
+      1.5
     ],
     "title": "701 Programming in R",
     "type": "class"
@@ -500,10 +500,10 @@ var in_all_levels = [
   {
     "foci": "mechanisms;stats",
     "outcomes": [
-      2,
-      2,
-      0,
-      0
+      2.0,
+      2.0,
+      0.0,
+      0.0
     ],
     "title": "701 Quantitative Genetics",
     "type": "class"
@@ -511,10 +511,10 @@ var in_all_levels = [
   {
     "foci": "mechanisms",
     "outcomes": [
-      2,
-      0,
-      0,
-      2
+      2.0,
+      0.0,
+      0.0,
+      2.0
     ],
     "title": "701 Rdgs Evlutnry Genetcs&Genomics",
     "type": "class"
@@ -522,10 +522,10 @@ var in_all_levels = [
   {
     "foci": "ecology",
     "outcomes": [
-      2,
-      0,
-      0,
-      2
+      2.0,
+      0.0,
+      0.0,
+      2.0
     ],
     "title": "701 Readings in Ecosystem Science",
     "type": "class"
@@ -533,10 +533,10 @@ var in_all_levels = [
   {
     "foci": "computing;stats",
     "outcomes": [
-      2,
-      2,
-      2,
-      0
+      2.0,
+      2.0,
+      2.0,
+      0.0
     ],
     "title": "701 Simulating the Covid Pandemic",
     "type": "class"
@@ -544,40 +544,51 @@ var in_all_levels = [
   {
     "foci": "computing;stats",
     "outcomes": [
-      0,
-      2,
-      2,
-      0
+      0.0,
+      2.0,
+      2.0,
+      0.0
     ],
     "title": "701 Simultn Modlg Biol",
     "type": "class"
   },
   {
     "outcomes": [
-      0,
-      2,
-      0,
-      2
+      0.0,
+      2.0,
+      0.0,
+      2.0
     ],
     "title": "701 Writing Scientific Papers",
     "type": "class"
   },
   {
+    "foci": "biodiversity;mechanisms",
     "outcomes": [
-      0,
-      2,
-      0,
-      2
+      3.0,
+      3.0,
+      0.0,
+      0.0
+    ],
+    "title": "712 Evolutionary Biology",
+    "type": "class"
+  },
+  {
+    "outcomes": [
+      0.0,
+      2.0,
+      0.0,
+      2.0
     ],
     "title": "720 Scientific Illustration",
     "type": "class"
   },
   {
     "outcomes": [
-      0,
-      2,
-      0,
-      2
+      0.0,
+      2.0,
+      0.0,
+      2.0
     ],
     "title": "735 Scientific Communication",
     "type": "class"
@@ -585,10 +596,10 @@ var in_all_levels = [
   {
     "foci": "mechanisms",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      3.0,
+      3.0,
+      0.0,
+      0.0
     ],
     "title": "743 Population Genetics",
     "type": "class"
@@ -596,10 +607,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "759 Ecosystems Stewardship",
     "type": "class"
@@ -607,10 +618,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "782 Principles of Biogeography",
     "type": "class"
@@ -618,10 +629,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      2
+      2.0,
+      0.0,
+      0.0,
+      2.0
     ],
     "title": "787 Introduction to Museum Exhibts",
     "type": "class"
@@ -629,10 +640,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "798 Intro Collctns Mgmt & Utiliztn",
     "type": "class"
@@ -640,10 +651,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "801 Adv Topics in Paleobiology",
     "type": "class"
@@ -651,10 +662,10 @@ var in_all_levels = [
   {
     "foci": "ecology",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "801 Biogeochemistry",
     "type": "class"
@@ -662,10 +673,10 @@ var in_all_levels = [
   {
     "foci": "computing",
     "outcomes": [
-      0,
-      2,
-      2,
-      0
+      0.0,
+      2.0,
+      2.0,
+      0.0
     ],
     "title": "801 Data Carpentry",
     "type": "class"
@@ -673,21 +684,21 @@ var in_all_levels = [
   {
     "foci": "mechanisms",
     "outcomes": [
-      2,
-      0,
-      0,
-      2
+      2.0,
+      0.0,
+      0.0,
+      2.0
     ],
     "title": "801 EEB Genetics",
     "type": "class"
   },
   {
-    "foci": "mechanismslbiodiversity",
+    "foci": "mechanisms;biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "801 Foundations of Speciation",
     "type": "class"
@@ -695,10 +706,10 @@ var in_all_levels = [
   {
     "foci": "ecology",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "801 Kansas Plants and Landscapes",
     "type": "class"
@@ -706,10 +717,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "801 Macroevolution",
     "type": "class"
@@ -717,10 +728,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "801 Molecular Systematics",
     "type": "class"
@@ -728,41 +739,41 @@ var in_all_levels = [
   {
     "foci": "mechanisms",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "815 Advanced Molecular Genetics",
     "type": "class"
   },
   {
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "816 Careers in the Biomed Sciences",
     "type": "class"
   },
   {
-    "foci": "mechanismslbiodiversity",
+    "foci": "mechanisms;biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      2.0,
+      1.0,
+      1.0
     ],
     "title": "848 Phylogenetic Methods",
     "type": "class"
   },
   {
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "860 Principles&Practice Chem Biol",
     "type": "class"
@@ -770,20 +781,20 @@ var in_all_levels = [
   {
     "foci": "stats",
     "outcomes": [
-      2,
-      2,
-      0,
-      0
+      2.0,
+      2.0,
+      2.0,
+      2.0
     ],
     "title": "943 Multivariate Data Analysis",
     "type": "class"
   },
   {
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "503 Immunology",
     "type": "class"
@@ -791,40 +802,40 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "509 Biology of Spiders",
     "type": "class"
   },
   {
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "512 General Virology",
     "type": "class"
   },
   {
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "518 Microbial Genetics",
     "type": "class"
   },
   {
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "520 Marine Biology",
     "type": "class"
@@ -832,10 +843,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "524 Mammalian Paleontology",
     "type": "class"
@@ -843,20 +854,20 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "527 Primate Evolutn & Fossil Recrd",
     "type": "class"
   },
   {
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      1.0,
+      1.0,
+      2.0,
+      2.0
     ],
     "title": "533 Biology of Fungi",
     "type": "class"
@@ -864,30 +875,30 @@ var in_all_levels = [
   {
     "foci": "mechanisms",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "545 Evolution of Development",
     "type": "class"
   },
   {
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "546 Mammalian Physiology",
     "type": "class"
   },
   {
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "547 Mammalian Physiology Laboratry",
     "type": "class"
@@ -895,10 +906,10 @@ var in_all_levels = [
   {
     "foci": "stats",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      2.0,
+      0.0,
+      1.0
     ],
     "title": "570 Introduction to Biostatistics",
     "type": "class"
@@ -906,10 +917,10 @@ var in_all_levels = [
   {
     "foci": "biodiversity",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "582 Principles of Biogeography",
     "type": "class"
@@ -917,22 +928,33 @@ var in_all_levels = [
   {
     "foci": "ecology",
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "594 Forest Ecosystems",
     "type": "class"
   },
   {
     "outcomes": [
-      2,
-      0,
-      0,
-      0
+      2.0,
+      1.0,
+      1.0,
+      1.0
     ],
     "title": "595 Human Genetics",
+    "type": "class"
+  },
+  {
+    "foci": "ecology",
+    "outcomes": [
+      2.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    "title": "414 Principles Ecol.",
     "type": "class"
   }
 ] ;
@@ -940,10 +962,10 @@ var in_ma_nonthesis = [
   {
     "level": "mant",
     "outcomes": [
-      3,
-      3,
-      3,
-      3
+      3.0,
+      3.0,
+      3.0,
+      3.0
     ],
     "timing": "FOURTH_SEMESTER",
     "title": "Masters Final Exam",
@@ -954,10 +976,10 @@ var in_ma_thesis = [
   {
     "level": "mat",
     "outcomes": [
-      3,
-      3,
-      3,
-      0
+      1.0,
+      3.0,
+      1.0,
+      1.5
     ],
     "timing": "3",
     "title": "899 Masters Thesis",
@@ -966,10 +988,10 @@ var in_ma_thesis = [
   {
     "level": "mat",
     "outcomes": [
-      3,
-      3,
-      2,
-      3
+      3.0,
+      2.0,
+      3.0,
+      3.0
     ],
     "timing": "THIRD_SEMESTER",
     "title": "Thesis Writing",
@@ -978,10 +1000,10 @@ var in_ma_thesis = [
   {
     "level": "mat",
     "outcomes": [
-      3,
-      3,
-      3,
-      3
+      3.0,
+      3.0,
+      3.0,
+      3.0
     ],
     "timing": "FOURTH_SEMESTER",
     "title": "Masters Defense",
@@ -992,10 +1014,10 @@ var in_phd = [
   {
     "level": "phd",
     "outcomes": [
-      2,
-      2,
-      2,
-      0
+      2.0,
+      2.0,
+      2.0,
+      0.0
     ],
     "timing": "7",
     "title": "999 Doctoral Dissertation",
@@ -1004,10 +1026,10 @@ var in_phd = [
   {
     "level": "phd",
     "outcomes": [
-      3,
-      3,
-      3,
-      0
+      3.0,
+      3.0,
+      3.0,
+      0.0
     ],
     "timing": "9",
     "title": "999 Doctoral Dissertation",
@@ -1016,10 +1038,10 @@ var in_phd = [
   {
     "level": "phd",
     "outcomes": [
-      2,
-      2,
-      1,
-      0
+      2.56,
+      2.0,
+      1.88,
+      1.75
     ],
     "timing": "THIRD_SEMESTER",
     "title": "Comp. Oral Exam",
@@ -1028,10 +1050,10 @@ var in_phd = [
   {
     "level": "phd",
     "outcomes": [
-      2,
-      2,
-      2,
-      2
+      2.58,
+      2.42,
+      2.42,
+      2.17
     ],
     "timing": "EARLY_FOURTH_SEMESTER",
     "title": "Dissertation Prop. Writing",
@@ -1040,10 +1062,10 @@ var in_phd = [
   {
     "level": "phd",
     "outcomes": [
-      2,
-      2,
-      2,
-      2
+      2.58,
+      2.58,
+      2.58,
+      2.5
     ],
     "timing": "FOURTH_SEMESTER",
     "title": "Dissertation Prop. Defense",
@@ -1052,10 +1074,10 @@ var in_phd = [
   {
     "level": "phd",
     "outcomes": [
-      3,
-      3,
-      2,
-      0
+      3.0,
+      3.0,
+      2.0,
+      0.0
     ],
     "timing": "EARLY_FIFTH_SEMESTER",
     "title": "Dissertation Research",
@@ -1064,10 +1086,10 @@ var in_phd = [
   {
     "level": "phd",
     "outcomes": [
-      3,
-      3,
-      2,
-      3
+      2.86,
+      2.86,
+      2.86,
+      2.79
     ],
     "timing": "FIFTH_SEMESTER",
     "title": "Dissertation Writing",
@@ -1076,10 +1098,10 @@ var in_phd = [
   {
     "level": "phd",
     "outcomes": [
-      3,
-      3,
-      3,
-      3
+      3.0,
+      3.0,
+      3.0,
+      3.0
     ],
     "timing": "BEFORE_DEFENSE_DATE",
     "title": "Finish Dissertation",
@@ -1088,10 +1110,10 @@ var in_phd = [
   {
     "level": "phd",
     "outcomes": [
-      3,
-      3,
-      3,
-      3
+      3.0,
+      3.0,
+      3.0,
+      3.0
     ],
     "timing": "DEFENSE_DATE",
     "title": "Defend Dissertation",
@@ -1100,10 +1122,10 @@ var in_phd = [
   {
     "level": "phd",
     "outcomes": [
-      2,
-      3,
-      2,
-      2
+      2.0,
+      3.0,
+      2.0,
+      2.0
     ],
     "title": "write a grant proposal",
     "type": "event"
@@ -1112,10 +1134,10 @@ var in_phd = [
     "level": "phd",
     "notes": "The research skills to be fulfilled is chosen by the student and their PAM committee and RAC.",
     "outcomes": [
-      0,
-      0,
-      2,
-      0
+      0.0,
+      0.0,
+      2.0,
+      0.0
     ],
     "timing": "BEFORE_ORALS",
     "title": "complete Research Skill",

@@ -48,13 +48,8 @@ var canvas_root;
 var class_by_sem = [];
 var untimed_event_list = [];
 var untimed_class_list = [];
-// If you change this, change the key, too!
-var outcome_col = [["#FFF", "#FAA", "#F77", "#F00", ],
-                   ["#FFF", "#FFB", "#FF7", "#FF0", ],
-                   ["#FFF", "#BBF", "#77F", "#00F", ],
-                   ["#FFF", "#BFF", "#8DD", "#0BB", ],
-                  ];
-var classFill = "#DDD";
+
+var classFill = "#FFF";
 var gID = 1;
 var ugID = 1;
 var non_class_events = [];
@@ -257,6 +252,55 @@ var dragcontainer = d3.drag()
     d3.select(this).attr("transform", "translate(" + (d.x = event.x) + "," + (d.y = event.y) + ")");
   });
 
+var get_fading_color_code = function(level, max_fade) {
+  var proportion = 1.0 - (3.000 - level)/3.0;
+  var scaled = Math.floor(255 - max_fade*proportion);
+  var color_code;
+  if (scaled < 1) {
+    scaled = 0;
+    color_code = "0";
+  } else {
+    color_code = scaled.toString(16).toUpperCase();
+  }
+  if (color_code.length < 2) {
+    color_code = "0".concat(color_code)
+  } if (color_code.length > 2) {
+    color_code = "FF";
+  }
+  return color_code;
+}
+
+var get_outcome_fill = function(lo_indx, level) {
+  // If you change the colors, change the key in learningoutcomes.pt too!
+  //                 ];
+  var str_code;
+  // our main color codes blend from FF to 00 as the level goes from 0 to 3
+  var color_code = get_fading_color_code(level, 255);
+  if (lo_indx == 0) {
+    // ["#FFF", "#FAA", "#F77", "#F00", ]
+    // R stays FF, G and B move together from FF to 00
+    str_code = "#FF".concat(color_code, color_code);
+  } else if (lo_indx == 1) {
+    //["#FFF", "#FFB", "#FF7", "#FF0", ]
+    // R and G stay at FF, B moves together from FF to 00
+    str_code = "#FFFF".concat(color_code);
+  } else if (lo_indx == 2) {
+    // ["#FFF", "#BBF", "#77F", "#00F", ]
+    // B stays FF, R and G move together from FF to 00
+    str_code = "#".concat(color_code, color_code, "FF");
+  } else if (lo_indx == 3) {
+    // ["#FFF", "#BFF", "#8DD", "#0BB", ]
+    // R moves together from FF to 00
+    // G and B move from FF to B0 which is a max of 79 steps
+    var alt_color_code = get_fading_color_code(level, 79);
+    str_code = "#".concat(color_code, alt_color_code, alt_color_code);
+  } else {
+    console.log("Unrecognized lo_indx");
+    return "#FFF"
+  }
+  return str_code;
+}
+
 var add_outcomes_boxes = function(group_el, o, x, y, height, full_width) {
   var outcomes = o.outcomes;
   var ov;
@@ -268,7 +312,7 @@ var add_outcomes_boxes = function(group_el, o, x, y, height, full_width) {
       .attr("y", y)
       .attr("height", height)
       .attr("width", width)
-      .attr("fill", outcome_col[oid][ov]);
+      .attr("fill", get_outcome_fill(oid, ov));
     oid += 1;
   }
 };
