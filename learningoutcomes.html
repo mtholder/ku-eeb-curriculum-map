@@ -1,50 +1,3 @@
-<!DOCTYPE html>
-<!-- from http://bl.ocks.org/mbostock/4339083
-and http://bl.ocks.org/mbostock/4063550
-
-!-->
-<html>
-<head>
-<meta charset="utf-8">
-<style>
-.timelinepoint {
-  font-size: 12px;
-}
-
-.eebevent {
-  font-size: 14px;
-}
-.eebclass {
-  font-size: 14px;
-}
-.keycode {
-  width: 12px;
-  height: 12px;
-  margin: auto;
-  display: inline-block;
-  vertical-align: middle;
-  border-radius: 2px;
-  border: 1px solid black;
-}
-</style>
-
-<link rel="stylesheet" href="jquery/jquery-ui-1.13.2.custom/jquery-ui.theme.css"> 
-<script src="jquery/jquery.v2.min.js"></script>
-<script src="jquery/jquery-ui-1.13.2.custom/jquery-ui.min.js"> </script>
-
-<script>
-  $( function() {
-    $( "#accordion" ).accordion({
-      collapsible: true
-    });
-  } );
-</script>
-</head>
-<body>
-<script src="d3/d3.v7.min.js"></script>
-<script src="./data.js"> </script>
-<p id="help"></p>
-
 <div id="accordion" class="ui-accordion-header">
 <h2>EEB Expected Learning Outcomes</h2>
 
@@ -123,20 +76,3 @@ and http://bl.ocks.org/mbostock/4063550
 </p>
 </div>
 </div>
-
-<hr />
-<h2>EEB PhD Curriculum Map</h2>
-<p><i>Note: This is still a work-in-progress!</i> The map will be interactive, allowing placement of classes and events onto a grid representing the timeline. Feel free to send comments/suggestions to <a href="mailto:mtholder@ku.edu">mtholder@ku.edu</a></p>
-<div>
-  <div id="canvas"/>
-</div>
-
-<script src="./currmaptable.js"> </script>
-<script>
-$(document).ready(function() {
-  main_func("phd");
-});
-</script>
-
-</body>
-</html>
