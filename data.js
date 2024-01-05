@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////
 // Data to be read from upload, at some point...
-var all_events = [
+var in_all_levels = [
   {
     "foci": "stats",
     "notes": "The application of statistical methods to data from various fields of biological research. Special emphasis is placed on practical computational procedures.",
@@ -37,18 +37,6 @@ var all_events = [
     "type": "class"
   },
   {
-    "level": "mat",
-    "outcomes": [
-      3,
-      3,
-      3,
-      0
-    ],
-    "timing": "5",
-    "title": "899 Masters Thesis",
-    "type": "class"
-  },
-  {
     "outcomes": [
       1,
       0,
@@ -66,30 +54,6 @@ var all_events = [
       0
     ],
     "title": "985 Advanced Study",
-    "type": "class"
-  },
-  {
-    "level": "phd",
-    "outcomes": [
-      2,
-      2,
-      2,
-      0
-    ],
-    "timing": "7",
-    "title": "999 Doctoral Dissertation",
-    "type": "class"
-  },
-  {
-    "level": "phd",
-    "outcomes": [
-      3,
-      3,
-      3,
-      0
-    ],
-    "timing": "9",
-    "title": "999 Doctoral Dissertation",
     "type": "class"
   },
   {
@@ -112,126 +76,6 @@ var all_events = [
     ],
     "timing": "START_THIRD_SEMESTER",
     "title": "form RAC",
-    "type": "event"
-  },
-  {
-    "level": "phd",
-    "outcomes": [
-      2,
-      2,
-      1,
-      0
-    ],
-    "timing": "THIRD_SEMESTER",
-    "title": "Comp. Oral Exam",
-    "type": "event"
-  },
-  {
-    "level": "mat",
-    "outcomes": [
-      3,
-      3,
-      2,
-      3
-    ],
-    "timing": "THIRD_SEMESTER",
-    "title": "Thesis Writing",
-    "type": "event"
-  },
-  {
-    "level": "mat",
-    "outcomes": [
-      3,
-      3,
-      3,
-      3
-    ],
-    "timing": "FOURTH_SEMESTER",
-    "title": "Masters Defense",
-    "type": "event"
-  },
-  {
-    "level": "mant",
-    "outcomes": [
-      3,
-      3,
-      3,
-      3
-    ],
-    "timing": "FOURTH_SEMESTER",
-    "title": "Masters Final Exam",
-    "type": "event"
-  },
-  {
-    "level": "phd",
-    "outcomes": [
-      2,
-      2,
-      2,
-      2
-    ],
-    "timing": "EARLY_FOURTH_SEMESTER",
-    "title": "Dissertation Prop. Writing",
-    "type": "event"
-  },
-  {
-    "level": "phd",
-    "outcomes": [
-      2,
-      2,
-      2,
-      2
-    ],
-    "timing": "FOURTH_SEMESTER",
-    "title": "Dissertation Prop. Defense",
-    "type": "event"
-  },
-  {
-    "level": "phd",
-    "outcomes": [
-      3,
-      3,
-      2,
-      0
-    ],
-    "timing": "EARLY_FIFTH_SEMESTER",
-    "title": "Dissertation Research",
-    "type": "event"
-  },
-  {
-    "level": "phd",
-    "outcomes": [
-      3,
-      3,
-      2,
-      3
-    ],
-    "timing": "FIFTH_SEMESTER",
-    "title": "Dissertation Writing",
-    "type": "event"
-  },
-  {
-    "level": "phd",
-    "outcomes": [
-      3,
-      3,
-      3,
-      3
-    ],
-    "timing": "BEFORE_DEFENSE_DATE",
-    "title": "Finish Dissertation",
-    "type": "event"
-  },
-  {
-    "level": "phd",
-    "outcomes": [
-      3,
-      3,
-      3,
-      3
-    ],
-    "timing": "DEFENSE_DATE",
-    "title": "Defend Dissertation",
     "type": "event"
   },
   {
@@ -333,29 +177,6 @@ var all_events = [
       2
     ],
     "title": "apply for a fellowship",
-    "type": "event"
-  },
-  {
-    "level": "phd",
-    "outcomes": [
-      2,
-      3,
-      2,
-      2
-    ],
-    "title": "write a grant proposal",
-    "type": "event"
-  },
-  {
-    "notes": "The research skills to be fulfilled is chosen by the student and their PAM committee and RAC.",
-    "outcomes": [
-      0,
-      0,
-      2,
-      0
-    ],
-    "timing": "BEFORE_ORALS",
-    "title": "complete Research Skill",
     "type": "event"
   },
   {
@@ -1114,5 +935,191 @@ var all_events = [
     "title": "595 Human Genetics",
     "type": "class"
   }
-]
+] ;
+var in_ma_nonthesis = [
+  {
+    "level": "mant",
+    "outcomes": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "timing": "FOURTH_SEMESTER",
+    "title": "Masters Final Exam",
+    "type": "event"
+  }
+] ;
+var in_ma_thesis = [
+  {
+    "level": "mat",
+    "outcomes": [
+      3,
+      3,
+      3,
+      0
+    ],
+    "timing": "3",
+    "title": "899 Masters Thesis",
+    "type": "class"
+  },
+  {
+    "level": "mat",
+    "outcomes": [
+      3,
+      3,
+      2,
+      3
+    ],
+    "timing": "THIRD_SEMESTER",
+    "title": "Thesis Writing",
+    "type": "event"
+  },
+  {
+    "level": "mat",
+    "outcomes": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "timing": "FOURTH_SEMESTER",
+    "title": "Masters Defense",
+    "type": "event"
+  }
+] ;
+var in_phd = [
+  {
+    "level": "phd",
+    "outcomes": [
+      2,
+      2,
+      2,
+      0
+    ],
+    "timing": "7",
+    "title": "999 Doctoral Dissertation",
+    "type": "class"
+  },
+  {
+    "level": "phd",
+    "outcomes": [
+      3,
+      3,
+      3,
+      0
+    ],
+    "timing": "9",
+    "title": "999 Doctoral Dissertation",
+    "type": "class"
+  },
+  {
+    "level": "phd",
+    "outcomes": [
+      2,
+      2,
+      1,
+      0
+    ],
+    "timing": "THIRD_SEMESTER",
+    "title": "Comp. Oral Exam",
+    "type": "event"
+  },
+  {
+    "level": "phd",
+    "outcomes": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "timing": "EARLY_FOURTH_SEMESTER",
+    "title": "Dissertation Prop. Writing",
+    "type": "event"
+  },
+  {
+    "level": "phd",
+    "outcomes": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "timing": "FOURTH_SEMESTER",
+    "title": "Dissertation Prop. Defense",
+    "type": "event"
+  },
+  {
+    "level": "phd",
+    "outcomes": [
+      3,
+      3,
+      2,
+      0
+    ],
+    "timing": "EARLY_FIFTH_SEMESTER",
+    "title": "Dissertation Research",
+    "type": "event"
+  },
+  {
+    "level": "phd",
+    "outcomes": [
+      3,
+      3,
+      2,
+      3
+    ],
+    "timing": "FIFTH_SEMESTER",
+    "title": "Dissertation Writing",
+    "type": "event"
+  },
+  {
+    "level": "phd",
+    "outcomes": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "timing": "BEFORE_DEFENSE_DATE",
+    "title": "Finish Dissertation",
+    "type": "event"
+  },
+  {
+    "level": "phd",
+    "outcomes": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "timing": "DEFENSE_DATE",
+    "title": "Defend Dissertation",
+    "type": "event"
+  },
+  {
+    "level": "phd",
+    "outcomes": [
+      2,
+      3,
+      2,
+      2
+    ],
+    "title": "write a grant proposal",
+    "type": "event"
+  },
+  {
+    "level": "phd",
+    "notes": "The research skills to be fulfilled is chosen by the student and their PAM committee and RAC.",
+    "outcomes": [
+      0,
+      0,
+      2,
+      0
+    ],
+    "timing": "BEFORE_ORALS",
+    "title": "complete Research Skill",
+    "type": "event"
+  }
+] ;
 
