@@ -124,7 +124,7 @@ var set_constants = function(lev) {
     EARLY_FIFTH_SEMESTER_Y = THIRD_YEAR_Y - 20;
     DEFENSE_Y = 500;
   } else {
-    DEFENSE_Y = THIRD_YEAR_Y;
+    DEFENSE_Y = FOURTH_SEM_Y + 20;
   }
   BEFORE_DEFENSE_Y = DEFENSE_Y - 20;
   if (lev == "phd") {
@@ -197,35 +197,45 @@ var add_timeline_obj = function(o) {
   add_timeline_text(y_var, o.text);
 };
 
-var do_draw_timeline = function() {
-  canvas_root.append("rect")
-    .attr('x', TIMELINE_X)
-    .attr('y', TIMELINE_Y)
-    .attr('height', CANDIDACY_Y - TIMELINE_Y)
-    .attr('width', TIMELINE_WIDTH)
-    .attr('fill', "white")
-    .attr('stroke', "black");
-  canvas_root.append('text')
-    .attr("x", MID_TIMELINE_X)
-    .attr("y", TIMELINE_Y + 15)
-    .attr("font-size", "10pt")
-    .attr("fill", "grey")
-    .attr("text-anchor", "middle")
-    .text("pre-candidacy");
-  canvas_root.append("rect")
-    .attr('x', TIMELINE_X)
-    .attr('y', CANDIDACY_Y)
-    .attr('height', DEFENSE_Y - CANDIDACY_Y)
-    .attr('width', TIMELINE_WIDTH)
-    .attr('fill', "white")
-    .attr('stroke', "black");
-  canvas_root.append('text')
-    .attr("x", MID_TIMELINE_X)
-    .attr( "y", DEFENSE_Y - 15)
-    .attr("font-size", "10pt")
-    .attr( "fill", "grey")
-    .attr("text-anchor", "middle")
-    .text("candidacy");
+var do_draw_timeline = function(lev) {
+  if (lev == "phd") {
+    canvas_root.append("rect")
+      .attr('x', TIMELINE_X)
+      .attr('y', TIMELINE_Y)
+      .attr('height', CANDIDACY_Y - TIMELINE_Y)
+      .attr('width', TIMELINE_WIDTH)
+      .attr('fill', "white")
+      .attr('stroke', "black");
+    canvas_root.append('text')
+      .attr("x", MID_TIMELINE_X)
+      .attr("y", TIMELINE_Y + 15)
+      .attr("font-size", "10pt")
+      .attr("fill", "grey")
+      .attr("text-anchor", "middle")
+      .text("pre-candidacy");
+    canvas_root.append("rect")
+      .attr('x', TIMELINE_X)
+      .attr('y', CANDIDACY_Y)
+      .attr('height', DEFENSE_Y - CANDIDACY_Y)
+      .attr('width', TIMELINE_WIDTH)
+      .attr('fill', "white")
+      .attr('stroke', "black");
+    canvas_root.append('text')
+      .attr("x", MID_TIMELINE_X)
+      .attr( "y", DEFENSE_Y - 15)
+      .attr("font-size", "10pt")
+      .attr( "fill", "grey")
+      .attr("text-anchor", "middle")
+      .text("candidacy");
+  } else {
+    canvas_root.append("rect")
+      .attr('x', TIMELINE_X)
+      .attr('y', TIMELINE_Y)
+      .attr('height', DEFENSE_Y - TIMELINE_Y)
+      .attr('width', TIMELINE_WIDTH)
+      .attr('fill', "white")
+      .attr('stroke', "black");
+  }
   var o;
   for (o of timeline_objs) {
     add_timeline_obj(o);
