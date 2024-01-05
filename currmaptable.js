@@ -300,7 +300,7 @@ var add_untimed_eeb_obj = function(o) {
   var height = (SEM_GAP_Y - 10)/2;
 
   var group_el = canvas_root.append("g");
-  display_eeb_obj(group_el, o, x, y, width, height);
+  display_eeb_obj(group_el, o, x + 1, y - 2, width, height);
   //add_eeb_text(y, o.title, o.outcomes);
   //console.log("x=" + x + ", y=" + y + ", text=" +o.title + "\n");
   group_el.append('text')
@@ -348,7 +348,7 @@ var add_untimed_class_obj = function(o) {
   //console.log("x=" + x + ", y=" + y + ", text=" +o.title + "\n");
   group_el.append('text')
     .attr("x", TIMELINE_X + CLASS_WIDTH*(untimed_class_list.length % 4) + CLASS_WIDTH/2)
-    .attr("y", y + 11)
+    .attr("y", y + 12)
     .attr("class", "eebevent")
     .text(o.title).attr("text-anchor", "middle");
   untimed_class_list[untimed_class_list.length] = o;
