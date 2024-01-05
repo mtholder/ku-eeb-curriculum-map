@@ -87,7 +87,7 @@ def parse_csv(inp):
             elif ll == "phd":
                 x = in_phd
             else:
-                raise RuntimeError(f"level value \'{level}\' not recognized.")
+                raise RuntimeError(f"level value '{level}' not recognized.")
             # sys.stderr.write(f"level=\'{level}\'\n")
             obj["level"] = ll
         else:
