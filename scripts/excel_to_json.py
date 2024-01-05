@@ -23,9 +23,13 @@ _lo_indices = [Row.LO1, Row.LO2, Row.LO3, Row.LO4]
 
 
 def parse_csv(inp):
-    x = []
+    in_all_levels = []
+    in_ma_nonthesis = []
+    in_ma_thesis = []
+    in_phd = []
     rdr = csv.reader(inp, delimiter="\t")
     header = False
+
     expected_header = (
         "course_number",
         "course_title",
@@ -75,7 +79,19 @@ def parse_csv(inp):
             obj["timing"] = timing
         obj["outcomes"] = lo_vec
         if level:
-            obj["level"] = level
+            ll = level.lower()
+            if ll == "mant":
+                x = in_ma_nonthesis
+            elif ll == "mat":
+                x = in_ma_thesis
+            elif ll == "phd":
+                x = in_phd
+            else:
+                raise RuntimeError(f"level value \'{level}\' not recognized.")
+            # sys.stderr.write(f"level=\'{level}\'\n")
+            obj["level"] = ll
+        else:
+            x = in_all_levels
         if foci:
             obj["foci"] = foci
         notes = row[Row.NOTES].strip()
@@ -85,17 +101,23 @@ def parse_csv(inp):
         if url:
             obj["urls"] = url
         x.append(obj)
-    return x
+    return in_all_levels, in_ma_nonthesis, in_ma_thesis, in_phd
 
 
 def main(fp):
     with open(fp, "r", encoding="utf-8") as inp:
-        x = parse_csv(inp)
-    data = json.dumps(x, sort_keys=True, indent=2)
+        all_l, mant, mat, phd = parse_csv(inp)
+    all_l = json.dumps(all_l, sort_keys=True, indent=2)
+    mant = json.dumps(mant, sort_keys=True, indent=2)
+    mat = json.dumps(mat, sort_keys=True, indent=2)
+    phd = json.dumps(phd, sort_keys=True, indent=2)
     print(
         f"""////////////////////////////////////////////////////////////////////////
 // Data to be read from upload, at some point...
-var all_events = {data}
+var in_all_levels = {all_l} ;
+var in_ma_nonthesis = {mant} ;
+var in_ma_thesis = {mat} ;
+var in_phd = {phd} ;
 """
     )
 
