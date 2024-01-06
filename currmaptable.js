@@ -72,6 +72,12 @@ var timeline_objs = [{
   }
 ];
 
+var biodiv_classes = [];
+var ecology_classes = [];
+var mechanisms_classes = [];
+var computing_classes = [];
+var stats_classes = [];
+
 ///////////////////////////////////////////////////////////////////////////
 var set_constants = function(lev) {
   CANVAS_WIDTH = 1500;
@@ -401,6 +407,7 @@ var add_untimed_class_obj = function(o) {
   untimed_class_list[untimed_class_list.length] = o;
 
   d3.select("#" + group_id).datum({"x": 0, "y": 0}).call(dragcontainer);
+  return group_el;
 };
 
 var do_draw_eeb_events = function() {
@@ -451,6 +458,7 @@ var add_class_obj = function(o) {
     .text(o.title)
       .attr("text-anchor", "middle");
   d3.select("#" + group_id).datum({"x": 0, "y": 0}).call(dragcontainer);
+  return group_el;
 }
 
 var do_draw_classes = function() {
@@ -463,11 +471,43 @@ var do_draw_classes = function() {
     .text("Classes");
 
   var o;
+  var new_group;
+  var wrapper;
   for (o of classes) {
     if (o.timing !== undefined) {
-      add_class_obj(o);
+      new_group = add_class_obj(o);
     } else {
-      add_untimed_class_obj(o);
+      new_group = add_untimed_class_obj(o);
+    }
+    wrapper = {
+      "html_group": new_group,
+      "data_class": o
+    };
+    if (o.hasOwnProperty("foci")) {
+      var foc_str = o["foci"];
+      var foc_list = foc_str.split(";")
+      for (var foc_el of foc_list) {
+        var sfoc_el = foc_el.trim();
+        if (sfoc_el == "biodiversity") {
+          biodiv_classes[biodiv_classes.length] = wrapper;
+        } else if (sfoc_el == "ecology") {
+          ecology_classes[ecology_classes.length] = wrapper;
+        } else if (sfoc_el == "mechanisms") {
+          mechanisms_classes[mechanisms_classes.length] = wrapper;
+        } else if (sfoc_el == "computing") {
+          computing_classes[computing_classes.length] = wrapper;
+        } else if (sfoc_el == "stats") {
+          stats_classes[stats_classes.length] = wrapper;
+        } else {
+          console.log("Unexpected " + sfoc_el + " in foci listing.\n")
+        }
+      }
+    } else {
+      biodiv_classes[biodiv_classes.length] = wrapper;
+      ecology_classes[ecology_classes.length] = wrapper;
+      mechanisms_classes[mechanisms_classes.length] = wrapper;
+      computing_classes[computing_classes.length] = wrapper;
+      stats_classes[stats_classes.length] = wrapper;
     }
   }
 }
