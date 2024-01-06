@@ -47,6 +47,25 @@ $(function(){
 <h2>EEB ${degree_name} Curriculum Map</h2>
 <p><i>Note: This is still a work-in-progress!</i> The map will be interactive, allowing placement of classes and events onto a grid representing the timeline. Feel free to send comments/suggestions to <a href="mailto:mtholder@ku.edu">mtholder@ku.edu</a></p>
 <div>
+  <div>
+    <p>Show classes about:
+      <label><input type="checkbox" id="chkbiodiversity" checked="checked" onclick="handleFociCheckboxClick(this);">
+        Biodiversity+Macro
+      </label>&nbsp;&nbsp;
+      <label><input type="checkbox" id="chkecology" checked="checked" onclick="handleFociCheckboxClick(this);">
+        Ecology
+      </label>&nbsp;&nbsp;
+      <label><input type="checkbox" id="chkmechanisms" checked="checked" onclick="handleFociCheckboxClick(this);">
+        Evo. Mechanisms
+      </label>&nbsp;&nbsp;
+      <label><input type="checkbox" id="chkcomputing" checked="checked" onclick="handleFociCheckboxClick(this);">
+        Computing
+      </label>&nbsp;&nbsp;
+      <label><input type="checkbox" id="chkstats" checked="checked" onclick="handleFociCheckboxClick(this);">
+        Stats
+      </label>&nbsp;&nbsp;      
+    </p>
+  </div>
   <div id="canvas"/>
 </div>
 

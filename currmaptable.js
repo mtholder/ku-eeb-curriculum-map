@@ -77,6 +77,7 @@ var ecology_classes = [];
 var mechanisms_classes = [];
 var computing_classes = [];
 var stats_classes = [];
+var all_class_wrappers = []
 
 ///////////////////////////////////////////////////////////////////////////
 var set_constants = function(lev) {
@@ -509,6 +510,62 @@ var do_draw_classes = function() {
       computing_classes[computing_classes.length] = wrapper;
       stats_classes[stats_classes.length] = wrapper;
     }
+    all_class_wrappers[all_class_wrappers.length] = wrapper;
+  }
+}
+
+var list_has_element = function(list, obj) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+        if (list[i] === obj) {
+            return true;
+        }
+    }
+    return false;
+}
+
+var add_new_els = function(src_list, dest_list) {
+  for (var o of src_list) {
+    if (!list_has_element(dest_list, o)) {
+      dest_list[dest_list.length] = o;
+    }
+  }
+}
+
+var handleFociCheckboxClick = function(box_checked) {
+  var to_show_wrappers = [];
+  var to_hide_wrappers = [];
+  var o;
+  var biodiv_chk = document.getElementById("chkbiodiversity");
+  var ecology_chk = document.getElementById("chkecology");
+  var mechanisms_chk = document.getElementById("chkmechanisms");
+  var computing_chk = document.getElementById("chkcomputing");
+  var stats_chk = document.getElementById("chkstats");
+  if (biodiv_chk.checked) {
+    add_new_els(biodiv_classes, to_show_wrappers);
+  }
+  if (ecology_chk.checked) {
+    add_new_els(ecology_classes, to_show_wrappers);
+  }
+  if (mechanisms_chk.checked) {
+    add_new_els(mechanisms_classes, to_show_wrappers);
+  }
+  if (computing_chk.checked) {
+    add_new_els(computing_classes, to_show_wrappers);
+  }
+  if (stats_chk.checked) {
+    add_new_els(stats_classes, to_show_wrappers);
+  }
+  for (o of all_class_wrappers) {
+    if (!list_has_element(to_show_wrappers, o)) {
+      to_hide_wrappers[to_hide_wrappers.length] = o;
+    }
+  }
+  for (o of to_hide_wrappers) {
+    o.html_group.style("opacity", 0);
+  }
+  for (o of to_show_wrappers) {
+    o.html_group.style("opacity", 1);
   }
 }
 
