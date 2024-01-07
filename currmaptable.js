@@ -39,6 +39,7 @@ var DEFENSE_Y;
 var BEFORE_DEFENSE_Y;
 var UNTIMED_EEB_Y;
 var UNTIMED_CLASS_Y;
+var NUM_CLASSES_PER_ROW;
 var timeline_y;
 
 ///////////////////////////////////////////////////////////////////////////
@@ -102,7 +103,8 @@ var set_constants = function(lev) {
   EEB_TEXT_WIDTH = EEB_WIDTH - 10;
   MID_EEB_X = EEB_X  + (EEB_WIDTH/2);
 
-  CLASS_WIDTH = 2* EEB_WIDTH;
+  NUM_CLASSES_PER_ROW = 5;
+  CLASS_WIDTH = 290;
   CLASS_X = EEB_X + (EEB_WIDTH + CLASS_WIDTH)/2 ;
   CLASS_Y = EEB_Y;
   CLASS_TEXT_PUSH_Y = EEB_TEXT_PUSH_Y + 4;
@@ -385,8 +387,8 @@ var display_class_obj = function(group_el, o, x, y, width, height) {
 };
 
 var add_untimed_class_obj = function(o) {
-  var x = TIMELINE_X + CLASS_WIDTH*(untimed_class_list.length % 4);
-  var row_ind = Math.floor(untimed_class_list.length / 4);
+  var x = TIMELINE_X + CLASS_WIDTH*(untimed_class_list.length % NUM_CLASSES_PER_ROW);
+  var row_ind = Math.floor(untimed_class_list.length / NUM_CLASSES_PER_ROW);
   var y = UNTIMED_CLASS_Y - 40 + SEM_GAP_Y*(1+row_ind);
   var width = CLASS_WIDTH;
   var height = (SEM_GAP_Y - 10);
@@ -401,7 +403,7 @@ var add_untimed_class_obj = function(o) {
   //add_eeb_text(y, o.title, o.outcomes);
   //console.log("x=" + x + ", y=" + y + ", text=" +o.title + "\n");
   group_el.append('text')
-    .attr("x", TIMELINE_X + CLASS_WIDTH*(untimed_class_list.length % 4) + CLASS_WIDTH/2)
+    .attr("x", x + CLASS_WIDTH/2)
     .attr("y", y + 12)
     .attr("class", "eebevent")
     .text(o.title).attr("text-anchor", "middle");
